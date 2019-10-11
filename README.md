@@ -14,17 +14,20 @@ https://github.com/ProceduralZC/pointZSXY.git
 
 前言
 ==
-整个项目功能比较多，也比较复杂，因此分多期开发，目前基本功能已经全部做完，部分功能有待优化，其他模块还在规划当中。考虑到目前功能已经可以使用，同时里面的权限管理，菜单管理，用户管理，可以用于任何需求的项目中，权限管理又是许多同学的痛点，因此将本项目提前开源供小伙伴们研究。
-提供App端接口已经完成，app端的开发进行中。。。
-需要注意的是，因为考虑到用户权限模板是一个很独立的模板，所以单独分离出来，作为一个项目库来使用，所以有两个项目包，其中 system-core-college 作为库文件引入到 onepoint_college中使用。
+整个项目功能比较多，也比较复杂，因此分多期开发，目前基本功能已经全部做完，部分功能有待优化，其他模块还在规划当中。考虑到目前功能已经可以使用，同时里面的权限管理，菜单管理，用户管理，可以用于任何需求的项目中，权限管理又是许多同学的痛点，因此将本项目提前开源供小伙伴们研究。\<br> 
+
+提供App端接口已经完成，app端的开发进行中。。。\<br> 
+
+需要注意的是，因为考虑到用户权限模板是一个很独立的模板，所以单独分离出来，作为一个项目库来使用，所以有两个项目包，其中 system-core-college 作为库文件引入到 onepoint_college中使用。\<br> 
+
 有需要的小伙伴可以拿来直接学习和使用，有任何问题可以查看说明。
 
 那么适合什么人群使用和学习呢？
 =
-1，Java初学者，这个是一个很好的学习框架，让你学会整体流程
-2，Java有一定经验（大牛除外），但是之前做的工作一直是打下手，这个框架就比较适合了，可以让自己对框架更深的了解，也可以一直升级和优化
-3，大学生，还没有毕业就想了解一下Java 和通过一个项目更深入的了解Java的神奇，跑起来该项目，一定很有成就感。
-4，其他语言转Java语言的，直接拿来使用就好
+1，Java初学者，这个是一个很好的学习框架，让你学会整体流程\<br> 
+2，Java有一定经验（大牛除外），但是之前做的工作一直是打下手，这个框架就比较适合了，可以让自己对框架更深的了解，也可以一直升级和优化\<br> 
+3，大学生，还没有毕业就想了解一下Java 和通过一个项目更深入的了解Java的神奇，跑起来该项目，一定很有成就感。\<br> 
+4，其他语言转Java语言的，直接拿来使用就好\<br> 
 
 另外，本项目也在不断的更新中，小伙伴们可以通过关注公众号   程序职场  了解最新更新记录查看最新完成的功能。
 
@@ -160,11 +163,11 @@ https://github.com/ProceduralZC/pointZSXY.git
 项目部署
 ==
 
-1.克隆(clone) 项目到本地: 克隆Github地址    https://github.com/ProceduralZC/pointZSXY.git
-2.数据库脚本放在onepoint_college 项目的src / main / webapp / file目录下，在MySQL中执行数据库脚本或者直接导入即可
-3.数据库配置在onepoint_college项目的resources目录下的application.properties文件中
-4.在eclipse中运行onepoint_college项目
-OK，到这里，服务端就启动成功了，此时我们直接在浏览器地址栏输入http://localhost:8080/onepoint_college/manager/home/login.html
+1.克隆(clone) 项目到本地: 克隆Github地址    https://github.com/ProceduralZC/pointZSXY.git \<br> 
+2.数据库脚本放在onepoint_college 项目的src / main / webapp / file目录下，在MySQL中执行数据库脚本或者直接导入即可\<br> 
+3.数据库配置在onepoint_college项目的resources目录下的application.properties文件中\<br> 
+4.在eclipse中运行onepoint_college项目\<br> 
+OK，到这里，服务端就启动成功了，此时我们直接在浏览器地址栏输入\<br> http://localhost:8080/onepoint_college/manager/home/login.html \<br> 
 即可访问项目，如果要做二次开发，直接在基础上作调整就行，不受任何影响。
 
 注意，注意，注意  对应的前端还在更新中，后面会陆续 开源 app，小程序，flutter等移动端源码。
