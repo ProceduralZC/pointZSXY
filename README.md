@@ -14,11 +14,11 @@ https://github.com/ProceduralZC/pointZSXY.git
 
 前言
 ==
-整个项目功能比较多，也比较复杂，因此分多期开发，目前基本功能已经全部做完，部分功能有待优化，其他模块还在规划当中。考虑到目前功能已经可以使用，同时里面的权限管理，菜单管理，用户管理，可以用于任何需求的项目中，权限管理又是许多同学的痛点，因此将本项目提前开源供小伙伴们研究。\<br> 
+整个项目功能比较多，也比较复杂，因此分多期开发，目前基本功能已经全部做完，部分功能有待优化，其他模块还在规划当中。考虑到目前功能已经可以使用，同时里面的权限管理，菜单管理，用户管理，可以用于任何需求的项目中，权限管理又是许多同学的痛点，因此将本项目提前开源供小伙伴们研究。<br/> 
 
-提供App端接口已经完成，app端的开发进行中。。。\<br> 
+提供App端接口已经完成，app端的开发进行中。。。<br/> 
 
-需要注意的是，因为考虑到用户权限模板是一个很独立的模板，所以单独分离出来，作为一个项目库来使用，所以有两个项目包，其中 system-core-college 作为库文件引入到 onepoint_college中使用。\<br> 
+需要注意的是，因为考虑到用户权限模板是一个很独立的模板，所以单独分离出来，作为一个项目库来使用，所以有两个项目包，其中 system-core-college 作为库文件引入到 onepoint_college中使用。<br/> 
 
 有需要的小伙伴可以拿来直接学习和使用，有任何问题可以查看说明。
 
@@ -163,11 +163,11 @@ https://github.com/ProceduralZC/pointZSXY.git
 项目部署
 ==
 
-1.克隆(clone) 项目到本地: 克隆Github地址    https://github.com/ProceduralZC/pointZSXY.git \<br> 
-2.数据库脚本放在onepoint_college 项目的src / main / webapp / file目录下，在MySQL中执行数据库脚本或者直接导入即可\<br> 
-3.数据库配置在onepoint_college项目的resources目录下的application.properties文件中\<br> 
-4.在eclipse中运行onepoint_college项目\<br> 
-OK，到这里，服务端就启动成功了，此时我们直接在浏览器地址栏输入\<br> http://localhost:8080/onepoint_college/manager/home/login.html \<br> 
+1.克隆(clone) 项目到本地: 克隆Github地址    https://github.com/ProceduralZC/pointZSXY.git <br/> 
+2.数据库脚本放在onepoint_college 项目的src / main / webapp / file目录下，在MySQL中执行数据库脚本或者直接导入即可<br/> 
+3.数据库配置在onepoint_college项目的resources目录下的application.properties文件中<br/> 
+4.在eclipse中运行onepoint_college项目<br/> 
+OK，到这里，服务端就启动成功了，此时我们直接在浏览器地址栏输入<br/> http://localhost:8080/onepoint_college/manager/home/login.html <br/> 
 即可访问项目，如果要做二次开发，直接在基础上作调整就行，不受任何影响。
 
 注意，注意，注意  对应的前端还在更新中，后面会陆续 开源 app，小程序，flutter等移动端源码。
@@ -184,3 +184,5 @@ OK，到这里，服务端就启动成功了，此时我们直接在浏览器地
 一个执着的职场程序员
 
 ![Alt text](https://github.com/ProceduralZC/pointZSXY/raw/master/onepoint_college/image/cxzc.jpg)
+
+[项目部署视频地址](https://github.com/ProceduralZC/pointZSXY.git)  
