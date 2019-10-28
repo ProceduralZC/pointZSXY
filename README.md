@@ -3,8 +3,7 @@
 
 扫码关注加微信，备注 一点知识学院，进群讨论。
 
-![效果](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/cxzc.jpg)
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/cxzc.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/cxzc.png)
 
 
 一点知识学院 是一个在线课程资料的管理系统（是对app手机端的支撑），项目采用SpringBoot +JPA+easyui开发。
@@ -33,7 +32,7 @@ https://github.com/ProceduralZC/pointZSXY.git
 
 另外，本项目也在不断的更新中，小伙伴们可以通过关注公众号   程序职场  了解最新更新记录查看最新完成的功能。
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/cxzc.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/cxzc.png)
 
 
 邀请函
