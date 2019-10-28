@@ -5,7 +5,6 @@
 
 ![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/cxzc.png)
 
-
 一点知识学院 是一个在线课程资料的管理系统（是对app手机端的支撑），项目采用SpringBoot +JPA+easyui开发。
 项目地址：Github项目地址
 
