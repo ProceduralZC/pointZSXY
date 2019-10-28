@@ -3,7 +3,7 @@
 
 扫码关注加微信，备注 一点知识学院，进群讨论。
 
-![](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/cxzc.jpg)
+![image](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/cxzc.jpg)
 
 
 一点知识学院 是一个在线课程资料的管理系统（是对app手机端的支撑），项目采用SpringBoot +JPA+easyui开发。
