@@ -55,95 +55,95 @@ https://github.com/ProceduralZC/pointZSXY.git
 （1）展示后台管理员信息，可以新增，删除，编辑 管理员信息，对不需要的用户可以：禁用，还可以做：启用，重置密码操作等
 
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/2.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/2.png)
 
 新增后台管理员用户，可以选择不同权限级别：超级管理员，一级管理员，二级管理员
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/3.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/3.png)
 
 编辑管理员信息
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/4.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/4.png)
 
 
 3、数据编辑
 --
 （1）用于维护项目中 固定数据 的展示和编辑，可以通过头部菜单：新增，编辑，删除
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/5.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/5.png)
 
 4、版本升级
 --
 （1）为app端开发的 android端 版本的升级 ，可以新增，编辑和删除
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/6.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/6.png)
 
 5、权限管理
 --
 （1）配置用户级别权限，可以给不同级别权限用户配置不同菜单，目前有：超级管理员，一级管理员，二级管理员
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/7.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/7.png)
 
 6、菜单管理
 --
 （1）产品的项目菜单数据管理，可以根据不同项目的需求 新增，删除，编辑等
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/8.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/8.png)
 
 
 7、知识类型
 --
 （1）app端的课程资源分类，目前规定四个主分类，知识课件，知识路径，精品系列知识，热门知识。可以新增，删除，编辑
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/9.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/9.png)
 
 8、知识课件
 --
 （1）课程知识的知识课件分类，可以新增，编辑，删除 分类，同时可以添加子课时
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/10.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/10.png)
 
 9、知识路径
 --
 （1）课程知识的知识路径分类，可以新增，编辑，删除 分类，同时可以添加子课时
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/11.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/11.png)
 
 10、精品系列知识
 --
 （1）课程知识的精品系列知识分类，可以新增，编辑，删除 分类，同时可以添加子课时
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/12.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/12.png)
 
 11、热门知识
 --
 （1）课程知识的热门知识分类，可以新增，编辑，删除 分类
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/13.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/13.png)
 
 12、精选课程
 --
 （1）精选课程是最专业和最具代表意义的课程资源，可以添加子课时，功能包括，新增，删除，编辑。
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/14.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/14.png)
 
 13、消息动态
 --
 （1）展示系统发布的一些系统消息，或者资源新增和变更消息等，用户app端展示，功能包括，新增，删除，修改。
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/15.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/15.png)
 
 14、首页动态
 --
 （1）展示系统发布的一些系统消息，或者推荐视频，最好视频资源等，用户app端展示，功能包括，新增，删除，修改。
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/16.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/16.png)
 
 15、意见反馈
 --
 （1）用来收集客户在app端使用中遇到的优化意见和反馈帮助意见等等。
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/17.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/17.png)
 
 技术栈
 ==
