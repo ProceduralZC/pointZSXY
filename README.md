@@ -31,7 +31,7 @@ https://github.com/ProceduralZC/pointZSXY.git
 
 另外，本项目也在不断的更新中，小伙伴们可以通过关注公众号   程序职场  了解最新更新记录查看最新完成的功能。
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/cxzc.png)
+![add image](https://github.com/ProceduralZC/pointZSXY/blob/master/image/0.png)
 
 
 邀请函
@@ -46,7 +46,7 @@ https://github.com/ProceduralZC/pointZSXY.git
 --
 （1）首先，不同的用户在登录成功之后，根据不同的角色，配置不同的菜单项，会看到不同的系统菜单，完整菜单如下：
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/%E5%9B%BE%E7%89%871.png)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/1.png)
 
 不同用户登录之后，看到的菜单项不同。
 
@@ -55,95 +55,95 @@ https://github.com/ProceduralZC/pointZSXY.git
 （1）展示后台管理员信息，可以新增，删除，编辑 管理员信息，对不需要的用户可以：禁用，还可以做：启用，重置密码操作等
 
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/图片2.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/2.jpg)
 
 新增后台管理员用户，可以选择不同权限级别：超级管理员，一级管理员，二级管理员
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/图片3.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/3.jpg)
 
 编辑管理员信息
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/图片4.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/4.jpg)
 
 
 3、数据编辑
 --
 （1）用于维护项目中 固定数据 的展示和编辑，可以通过头部菜单：新增，编辑，删除
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/图片5.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/5.jpg)
 
 4、版本升级
 --
 （1）为app端开发的 android端 版本的升级 ，可以新增，编辑和删除
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/图片6.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/6.jpg)
 
 5、权限管理
 --
 （1）配置用户级别权限，可以给不同级别权限用户配置不同菜单，目前有：超级管理员，一级管理员，二级管理员
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/图片7.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/7.jpg)
 
 6、菜单管理
 --
 （1）产品的项目菜单数据管理，可以根据不同项目的需求 新增，删除，编辑等
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/图片8.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/8.jpg)
 
 
 7、知识类型
 --
 （1）app端的课程资源分类，目前规定四个主分类，知识课件，知识路径，精品系列知识，热门知识。可以新增，删除，编辑
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/图片9.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/9.jpg)
 
 8、知识课件
 --
 （1）课程知识的知识课件分类，可以新增，编辑，删除 分类，同时可以添加子课时
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/图片10.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/10.jpg)
 
 9、知识路径
 --
 （1）课程知识的知识路径分类，可以新增，编辑，删除 分类，同时可以添加子课时
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/图片11.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/11.jpg)
 
 10、精品系列知识
 --
 （1）课程知识的精品系列知识分类，可以新增，编辑，删除 分类，同时可以添加子课时
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/图片12.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/12.jpg)
 
 11、热门知识
 --
 （1）课程知识的热门知识分类，可以新增，编辑，删除 分类
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/图片13.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/13.jpg)
 
 12、精选课程
 --
 （1）精选课程是最专业和最具代表意义的课程资源，可以添加子课时，功能包括，新增，删除，编辑。
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/图片14.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/14.jpg)
 
 13、消息动态
 --
 （1）展示系统发布的一些系统消息，或者资源新增和变更消息等，用户app端展示，功能包括，新增，删除，修改。
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/图片15.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/15.jpg)
 
 14、首页动态
 --
 （1）展示系统发布的一些系统消息，或者推荐视频，最好视频资源等，用户app端展示，功能包括，新增，删除，修改。
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/图片16.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/16.jpg)
 
 15、意见反馈
 --
 （1）用来收集客户在app端使用中遇到的优化意见和反馈帮助意见等等。
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/图片17.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/17.jpg)
 
 技术栈
 ==
@@ -183,6 +183,6 @@ OK，到这里，服务端就启动成功了，此时我们直接在浏览器地
 关注公众号 程序职场 ，专注于 前端框架（flutter）app移动端，小程序， Spring Boot+微服务，定期文章分享，后续定期更新视频，关注后回复   Java资料  ，领取为你精心准备的干货！
 一个执着的职场程序员
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/onepoint_college/image/cxzc.jpg)
+![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/0.png)
 
 [项目部署视频地址](https://github.com/ProceduralZC/pointZSXY.git)  
