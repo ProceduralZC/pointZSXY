@@ -82,13 +82,13 @@ https://github.com/ProceduralZC/pointZSXY.git
 --
 （1）配置用户级别权限，可以给不同级别权限用户配置不同菜单，目前有：超级管理员，一级管理员，二级管理员
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/7.png)
+![Image text7](https://github.com/ProceduralZC/pointZSXY/blob/master/image/7.png)
 
 6、菜单管理
 --
 （1）产品的项目菜单数据管理，可以根据不同项目的需求 新增，删除，编辑等
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/8.png)
+![Image text7](https://github.com/ProceduralZC/pointZSXY/blob/master/image/8.png)
 
 
 7、知识类型
