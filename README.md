@@ -55,28 +55,28 @@ https://github.com/ProceduralZC/pointZSXY.git
 （1）展示后台管理员信息，可以新增，删除，编辑 管理员信息，对不需要的用户可以：禁用，还可以做：启用，重置密码操作等
 
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/2.png)
+![Image text2](https://github.com/ProceduralZC/pointZSXY/blob/master/image/2.png)
 
 新增后台管理员用户，可以选择不同权限级别：超级管理员，一级管理员，二级管理员
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/3.png)
+![Image text3](https://github.com/ProceduralZC/pointZSXY/blob/master/image/3.png)
 
 编辑管理员信息
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/4.png)
+![Image text4](https://github.com/ProceduralZC/pointZSXY/blob/master/image/4.png)
 
 
 3、数据编辑
 --
 （1）用于维护项目中 固定数据 的展示和编辑，可以通过头部菜单：新增，编辑，删除
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/5.png)
+![Image text5](https://github.com/ProceduralZC/pointZSXY/blob/master/image/5.png)
 
 4、版本升级
 --
 （1）为app端开发的 android端 版本的升级 ，可以新增，编辑和删除
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/6.png)
+![Image text6](https://github.com/ProceduralZC/pointZSXY/blob/master/image/6.png)
 
 5、权限管理
 --
@@ -88,7 +88,7 @@ https://github.com/ProceduralZC/pointZSXY.git
 --
 （1）产品的项目菜单数据管理，可以根据不同项目的需求 新增，删除，编辑等
 
-![Image text7](https://github.com/ProceduralZC/pointZSXY/blob/master/image/8.png)
+![Image text8](https://github.com/ProceduralZC/pointZSXY/blob/master/image/8.png)
 
 
 7、知识类型
