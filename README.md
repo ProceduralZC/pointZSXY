@@ -31,7 +31,7 @@ https://github.com/ProceduralZC/pointZSXY.git
 
 另外，本项目也在不断的更新中，小伙伴们可以通过关注公众号   程序职场  了解最新更新记录查看最新完成的功能。
 
-![add image](https://github.com/ProceduralZC/pointZSXY/blob/master/image/0.png)
+![add image2](https://github.com/ProceduralZC/pointZSXY/blob/master/image/0.png)
 
 
 邀请函
@@ -95,55 +95,55 @@ https://github.com/ProceduralZC/pointZSXY.git
 --
 （1）app端的课程资源分类，目前规定四个主分类，知识课件，知识路径，精品系列知识，热门知识。可以新增，删除，编辑
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/9.png)
+![Image text9](https://github.com/ProceduralZC/pointZSXY/blob/master/image/9.png)
 
 8、知识课件
 --
 （1）课程知识的知识课件分类，可以新增，编辑，删除 分类，同时可以添加子课时
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/10.png)
+![Image text10](https://github.com/ProceduralZC/pointZSXY/blob/master/image/10.png)
 
 9、知识路径
 --
 （1）课程知识的知识路径分类，可以新增，编辑，删除 分类，同时可以添加子课时
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/11.png)
+![Image text11](https://github.com/ProceduralZC/pointZSXY/blob/master/image/11.png)
 
 10、精品系列知识
 --
 （1）课程知识的精品系列知识分类，可以新增，编辑，删除 分类，同时可以添加子课时
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/12.png)
+![Image text12](https://github.com/ProceduralZC/pointZSXY/blob/master/image/12.png)
 
 11、热门知识
 --
 （1）课程知识的热门知识分类，可以新增，编辑，删除 分类
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/13.png)
+![Image text13](https://github.com/ProceduralZC/pointZSXY/blob/master/image/13.png)
 
 12、精选课程
 --
 （1）精选课程是最专业和最具代表意义的课程资源，可以添加子课时，功能包括，新增，删除，编辑。
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/14.png)
+![Image text14](https://github.com/ProceduralZC/pointZSXY/blob/master/image/14.png)
 
 13、消息动态
 --
 （1）展示系统发布的一些系统消息，或者资源新增和变更消息等，用户app端展示，功能包括，新增，删除，修改。
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/15.png)
+![Image text15](https://github.com/ProceduralZC/pointZSXY/blob/master/image/15.png)
 
 14、首页动态
 --
 （1）展示系统发布的一些系统消息，或者推荐视频，最好视频资源等，用户app端展示，功能包括，新增，删除，修改。
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/16.png)
+![Image text16](https://github.com/ProceduralZC/pointZSXY/blob/master/image/16.png)
 
 15、意见反馈
 --
 （1）用来收集客户在app端使用中遇到的优化意见和反馈帮助意见等等。
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/17.png)
+![Image text17](https://github.com/ProceduralZC/pointZSXY/blob/master/image/17.png)
 
 技术栈
 ==
@@ -183,6 +183,6 @@ OK，到这里，服务端就启动成功了，此时我们直接在浏览器地
 关注公众号 程序职场 ，专注于 前端框架（flutter）app移动端，小程序， Spring Boot+微服务，定期文章分享，后续定期更新视频，关注后回复   Java资料  ，领取为你精心准备的干货！
 一个执着的职场程序员
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/0.png)
+![Image text18](https://github.com/ProceduralZC/pointZSXY/blob/master/image/0.png)
 
 [项目部署视频地址](https://github.com/ProceduralZC/pointZSXY.git)  
