@@ -5,7 +5,8 @@
 
 ![add image](https://github.com/ProceduralZC/pointZSXY/blob/master/image/0.png)
 
-一点知识学院 是一个在线课程资料的管理系统（是对app手机端的支撑），项目采用SpringBoot +JPA+easyui开发。
+一点知识学院 是一个在线课程资料的管理系统（是对app手机端的支撑），项目框架采用SpringBoot + JPA + mysql + easyui开发。
+
 项目地址：Github项目地址
 
 https://github.com/ProceduralZC/pointZSXY.git
@@ -14,7 +15,7 @@ https://github.com/ProceduralZC/pointZSXY.git
 
 前言
 ==
-整个项目功能比较多，也比较复杂，因此分多期开发，目前基本功能已经全部做完，部分功能有待优化，其他模块还在规划当中。考虑到目前功能已经可以使用，同时里面的权限管理，菜单管理，用户管理，可以用于任何需求的项目中，权限管理又是许多同学的痛点，因此将本项目提前开源供小伙伴们研究。<br/> 
+整个项目功能比较多，需要时间来维护，因此分多期开发，目前基本功能已经全部做完，部分功能有待优化，其他模块还在规划当中。考虑到目前功能已经可以使用，同时里面的权限管理，菜单管理，用户管理，可以用于任何需求的项目中，权限管理又是许多同学的痛点，因此将本项目提前开源供小伙伴们研究。<br/> 
 
 提供App端接口已经完成，app端的开发进行中。。。<br/> 
 
