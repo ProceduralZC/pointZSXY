@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>仓储物资智能管理跟踪系统</title>
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3"/>
+<meta http-equiv="description" content="this is my page"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<script type="text/javascript" src="../../head.js"></script>
+</head>
+	<body>
+		<div id="tools" class="datagrid-toolbar">
+			<a onclick="save();" class="easyui-linkbutton" iconCls="icon-save" plain="true">保存</a>
+			<a onclick="window.location.reload();" class="easyui-linkbutton" iconCls="icon-reload2" plain="true">刷新</a>
+			<a onclick="closeWindow();" class="easyui-linkbutton" iconCls="icon-close" plain="true">关闭</a>
+	    </div>
+		<form id="my-form">
+			<p id="errorMsg" style="color:red;margin-top:5px;"></p>
+			<table class="formTable" >
+				<tr id="dataCodeTr" style="display: none">
+					<td width="161"  class="tdc1">
+						数据字典代码：
+					</td>
+					<td>
+						<input type="text" name="dataCode" data-options="required:true" class="easyui-validatebox" readonly="readonly"/>
+					</td>
+				</tr>
+				<tr id="codeTr" style="display: none">
+					<td width="161"  class="tdc1">
+						编号：
+					</td>
+					<td>
+						<input name="code" id="code" maxlength="50"   class="easyui-validatebox" />
+					</td>
+				</tr>	
+				<tr>
+					<td width="161"  class="tdc1">
+						名称：
+					</td>
+					<td>
+						<input type="text" name="name" data-options="required:true" class="easyui-validatebox" />
+					</td>
+				</tr>
+				
+				<tr id="propertyTr" style="display: none">
+					<td width="161"  class="tdc1">
+						特殊工区：
+					</td>
+					<td>
+						<select id="property" name="property">
+							<option value="0" selected="selected">否</option>
+							<option value="1" >是</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+			<input type="hidden" name="parentObjId" id="parentObjId" />
+			<input type="hidden" name="depth" id="depth" />
+			<input type="hidden" name="status" id="status" value="1" />		
+		</form>
+	</body>
+</html>
+<script>
+
+	var id = getPram('id');
+	var view = new FormView('#my-form',contextPath+'/system/getDataDictionary/'+id);
+	view.doLoad(loadParent);
+	function loadParent(model, response, options){
+		if(model["parentObj"]!=null){
+	 		$('#parentObjId').val(model["parentObj"]["id"]);
+	 	}
+		if(model['depth']==1){
+			$("#dataCodeTr").show();
+		}
+		if(model['depth']==2){
+			$("#codeTr").show();
+		}
+		if(model['depth']==3){
+			$("#propertyTr").show();
+		}
+	}
+
+	function checkFormMe(){
+		if(1==depth){
+			if(""==$("#code").val()){
+				$.messager.alert("提示","车间编号不能为空!",'warning');
+				return;
+			}
+		}
+	   return $('#my-form').form('validate');
+	}
+	function save(){
+		if(checkFormMe()){
+			var arg = $('#my-form').serializeArray();
+			jQuery.post(contextPath+"/system/updateDataDictionary/"+id,arg,
+			function (data) {
+				var res =$.parseJSON(data.toString());
+				if(res['flag'] == "success"){
+					$.messager.alert("提示","操作成功!",'info',function(rt){
+						window.parent.query(id);
+						closeWindow();
+					});
+				}else if(res['flag'] == "error"){
+					$.messager.alert("提示",res['message'],'warning');
+				}else{
+					$.messager.alert("提示","操作失败!",'error');
+				}
+			});
+		}
+	}
+</script>

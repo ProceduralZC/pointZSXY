@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>仓储物资智能管理跟踪系统</title>
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3"/>
+<meta http-equiv="description" content="this is my page"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<script type="text/javascript" src="../../head.js"></script>
+</head>
+<body>
+	<div id="tools" class="datagrid-toolbar">
+		<a onclick="saveMenus();" class="easyui-linkbutton" iconCls="icon-save" plain="true" >保存</a>
+		<a onclick="window.location.reload();" class="easyui-linkbutton" iconCls="icon-reload2" plain="true">刷新</a>
+		<a onclick="closeWindow();" class="easyui-linkbutton" iconCls="icon-close" plain="true">关闭</a>
+    </div>
+	
+	<div id="menu_tree" class="easyui-tree" data-options="animate:true,checkbox:true,lines:true"></div>
+	
+</body>
+</html>
+<script>
+	var p_id = getPram('id');
+	//查询菜单
+	function query(){
+		var menu_tree = $('#menu_tree');
+		$.getJSON(contextPath+"/system/sysMenus?i="+new Date().getTime(),{
+		},function(data){
+			for(i in data){
+				var node;
+				if(data[i]['parentObj']!=null){
+					node = $('#menu_tree').tree('find',data[i]['parentObj']['id']);
+				}
+				menu_tree.tree('append', {
+					parent: (node?node.target:null),
+					data: [{
+						id: data[i]['id'],
+						text: data[i]['name'],
+						state:'open',
+						iconCls: data[i]['img'],
+						checked:true
+					}]
+				});
+			}
+			checked();
+		});
+	}
+	query();
+	
+	function checked(){//选中菜单
+		$.getJSON(contextPath+"/system/findMenuByRoles/"+p_id+"?i="+new Date().getTime(),{
+		},function(data){
+			var noId = ",";
+			for(i in data){
+				noId += data[i]['sysMenuId']+',';
+			}
+			var menu_tree = $('#menu_tree').tree('getChecked');
+			for(i in menu_tree){
+				var checkId = menu_tree[i]['id'];
+				if(noId.indexOf(','+checkId+',')<0){
+					var node = $('#menu_tree').tree('find', checkId);
+					$('#menu_tree').tree('uncheck',node.target);
+				}
+			}
+		});
+	}
+	//保存
+	function saveMenus(){
+		var ids = "";
+		var menu_tree = $('#menu_tree').tree('getChecked','indeterminate');
+		for(i in menu_tree){
+			ids += menu_tree[i]['id']+",";
+		}
+		menu_tree = $('#menu_tree').tree('getChecked');
+		for(i in menu_tree){
+			ids += menu_tree[i]['id']+",";
+		}
+		if(ids.charAt(ids.length-1)==","){
+			ids = ids.substr(0,ids.length-1);
+		}
+		
+		$.ajax({
+			type : 'POST',
+			url : contextPath+'/system/insertSysRoleMenu/'+p_id,
+			data : {'menusId':ids},
+			dataType : "json",
+			success : function(data){
+				var res =data;
+				if(res['flag'] == "success"){
+					$.messager.alert("提示","操作成功!",'info',function(rt){
+						window.parent.query();
+						closeWindow();
+					});
+				}else{
+					$.messager.alert("提示","操作失败!",'error');
+				}
+			},
+			error:function(response){
+				$.messager.alert("提示","出错了，请联系管理员!",'error',function(rt){
+					$.messager.alert("提示",response.responseText,'error');
+				});
+			}
+		});
+	}
+</script>		 

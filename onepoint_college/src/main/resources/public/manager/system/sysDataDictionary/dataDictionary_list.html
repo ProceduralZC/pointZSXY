@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>仓储物资智能管理跟踪系统</title>
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3"/>
+<meta http-equiv="description" content="this is my page"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<script type="text/javascript" src="../../head.js"></script>
+<script type="text/javascript" src="../../script/formatTree.js"></script>
+</head>
+<body>
+	<div id="tools" class="datagrid-toolbar">
+		<a onclick="add();"  class="easyui-linkbutton" iconCls="icon-add" plain="true">新增</a>
+		<a onclick="edit();" class="easyui-linkbutton" iconCls="icon-edit" plain="true">编辑</a>
+		<a onclick="del();"  class="easyui-linkbutton" iconCls="icon-cancel" plain="true">删除</a>
+    </div>
+    <div style="border: 1px solid #ADADAD;background-color: #F4F4F4;font-size: 16px;color:red;">注意:每一行可以点击打开下一层级</div>
+	<table id="list_tree" class="easyui-treegrid" data-options="
+				rownumbers: true,
+				animate: true,
+				singleSelect:true,
+				collapsible: true,
+				fitColumns: true,
+				idField: 'id',
+				treeField: 'name',
+				onDblClickRow:dbClick,
+				onClickRow:loadRow
+			">
+		<thead>
+			<tr>
+				<th data-options="field:'id',checkbox:true">操作</th>
+				<th data-options="field:'name',width:180">数据字典名称</th>
+				<th data-options="field:'code',width:180">编号</th>
+				<th data-options="field:'dataCode',width:180">数据字典代码</th>
+				<th data-options="field:'createDate',width:180">创建日期</th>
+				<th data-options="field:'parentId',width:180,hidden:true"></th>
+				<th data-options="field:'depth',width:180,hidden:true"></th>
+			</tr>
+		</thead>
+	</table>
+ 
+</body>
+</html>
+<script>
+		function loadRow(row){
+			if(row['depth']!=3){
+				query(row['id']);
+			}
+		}
+		//添加的方法
+		function add(){
+			var id=0;
+			var parentId=0;
+			var depth=0;
+			var dataCode="";
+			var data= $("#list_tree").treegrid('getSelections');//获取选中的行
+			if(data!=null&& data!=''){
+				id = data[0]['id'];
+				dataCode=data[0]['dataCode'];
+				depth = data[0]['depth'];
+				if(data[0]['parentObj.id']!=null && data[0]['parentObj.id']!=undefined){
+					parentId=data[0]['parentObj.id'];
+				}
+			}
+			if(depth==3){
+				$.messager.alert('提示','只能有3级节点!','info');
+				return "";
+			}
+			openWindow(contextPath+"/manager/system/sysDataDictionary/dataDictionary_add.html?id="+id+"&depth="+depth+"&dataCode="+dataCode);
+		}
+		
+		//修改的方法
+		function edit(){
+			var id = getId('#list_tree','tree');//获取选中的行
+			if(id == ""){
+				return;
+			}
+			openWindow(contextPath+"/manager/system/sysDataDictionary/dataDictionary_edit.html?id="+id);
+		}
+		//行的双击事件
+		function dbClick(rowData){
+			openWindow(contextPath+"/manager/system/sysDataDictionary/dataDictionary_edit.html?id="+rowData['id']);
+		}
+		//删除
+		function del(){
+			var ids = getId('#list_tree','tree');//获取选中的行ids
+			if(ids == ""){
+				return;
+			}
+			$.messager.confirm('提示','确定要删除吗?',function(r){
+				if(r){
+					$.ajax({
+						type : 'POST',
+						url : contextPath+'/system/delDataDictionary',
+						data : {'ids':ids},
+						dataType : "json",
+						success : function(data){
+							$.messager.alert("提示","操作成功!",'info',function(rt){
+								query();
+							});
+						},
+						error:function(response){
+							$.messager.alert("提示","出错了，请联系管理员!",'error',function(rt){
+								$.messager.alert("提示",response.responseText,'error');
+							});
+						}
+					});
+				}
+			});
+		}
+		
+		/* //查询
+		function query(){
+			requery();
+			$.getJSON(contextPath+"/system/dataDictionary/tree?i="+new Date().getTime(),{
+				
+			},function(data){
+				var menus = formatTreeGrid('#list_tree','parentObj',data);
+				$('#list_tree').treegrid({data:menus});
+			});
+		}
+		
+		//清空
+		function requery(){
+			$('#list_tree').treegrid({data:[]});	
+		}
+		query(); */
+		
+		//查询
+		function query(parent){
+			$.getJSON(contextPath+"/system/dataDictionary/findByParentId/"+parent+"?i="+new Date().getTime(),{
+			},function(data){
+				for(i in data){
+					var parentId ;
+					if(data[i]['parentObj']!=null){
+						parentId = data[i]['parentObj']['id'];
+					}
+					var row = $('#list_tree').treegrid('find',data[i]['id']);
+					if(row==null){
+						$('#list_tree').treegrid('append',{
+							parent: parentId,
+							data: [{
+								id: data[i]['id'],
+								name: data[i]['name'],
+								code: data[i]['code'],
+								dataCode: data[i]['dataCode'],
+								createDate: data[i]['createDate'],
+								depth: data[i]['depth'],
+								parentId: parentId==null?0:parentId
+							}]
+						});
+					}else{
+						$('#list_tree').treegrid('update',{
+							id: data[i]['id'],
+							row: {
+								id: data[i]['id'],
+								name: data[i]['name'],
+								code: data[i]['code'],
+								dataCode: data[i]['dataCode'],
+								createDate: data[i]['createDate'],
+								depth: data[i]['depth'],
+								parentId: parentId==null?0:parentId
+							}
+						});
+					}
+				}
+			});
+		}
+		//清空
+		function requery(){
+			$('#list_tree').treegrid({data:[]});
+		}
+		requery();
+		query(0); 
+</script>		 

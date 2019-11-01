@@ -169,7 +169,10 @@ https://github.com/ProceduralZC/pointZSXY.git
 3.数据库配置在onepoint_college项目的resources目录下的application.properties文件中<br/> 
 4.在eclipse中运行onepoint_college项目<br/> 
 OK，到这里，服务端就启动成功了，此时我们直接在浏览器地址栏输入<br/> http://localhost:8080/onepoint_college/manager/home/login.html <br/> 
-即可访问项目，如果要做二次开发，直接在基础上作调整就行，不受任何影响。
+到此时即可访问该项目，如果要做二次开发，直接在基础上作调整就行，不受任何影响。
+
+（如果启动遇到问题，关注 公众号 “ 程序职场 ”  加群 交流）
+=
 
 注意，注意，注意  对应的前端还在更新中，后面会陆续 开源 app，小程序，flutter等移动端源码。
 
@@ -186,4 +189,4 @@ OK，到这里，服务端就启动成功了，此时我们直接在浏览器地
 
 ![Image text18](https://github.com/ProceduralZC/pointZSXY/blob/master/image/0.png)
 
-[项目部署视频地址](https://github.com/ProceduralZC/pointZSXY.git)  
+[项目部署视频地址](https://github.com/ProceduralZC/pointZSXY.git)

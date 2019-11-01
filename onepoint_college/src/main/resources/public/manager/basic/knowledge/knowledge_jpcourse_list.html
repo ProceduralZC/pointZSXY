@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>一点知识系统</title>
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3"/>
+<meta http-equiv="description" content="this is my page"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<script type="text/javascript" src="../../head.js"></script>
+<script type="text/javascript" src="../../script/ajaxfileupload.js"></script>
+</head>
+<body>
+
+<div id="tools" class="datagrid-toolbar">
+		<a onclick="add();"  class="easyui-linkbutton" iconCls="icon-add" plain="true">新增</a>
+		<a onclick="edit();" class="easyui-linkbutton" iconCls="icon-edit" plain="true">编辑</a>
+		<a onclick="del();"  class="easyui-linkbutton" iconCls="icon-cancel" plain="true">删除</a>
+</div>
+
+ <form id="jvForm" action="" enctype="multipart/form-data" method="post">
+	<div id="search" class="datagrid-toolbar">
+		<table>
+			    <tr>
+					<td align="right">添加时间：</td>
+				    <td align="left">
+					<input name="startDate" id="startDate" class="Wdate" style="width:100px;" 
+						onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',maxDate:'#F{$dp.$D(\'endDate\')}'})" />-
+					<input name="endDate" id="endDate" class="Wdate" style="width:100px;" 
+						onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'#F{$dp.$D(\'startDate\')}'})" />
+				    </td>
+				    
+					<td align="right">知识名称：</td>
+					<td align="left">
+						<input name="knowledgename" id="knowledgename" />
+					</td>
+					
+				</tr>
+				<tr>
+					<td align="right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td><a class="easyui-linkbutton" iconCls="icon-search"
+						plain="true" onclick="query();" style="border: 1px solid #99CCFF;">确定</a> 
+					<a class="easyui-linkbutton" iconCls="icon-recycle"
+						plain="true" onclick="requery();" style="border: 1px solid #99CCFF;">重置</a> 
+					</td>
+			   </tr>
+		</table>
+	</div>
+ </form>
+<table id="list_data"></table>
+<br />
+
+<div id="tools" class="datagrid-toolbar" style="text-align: center;">
+	<a onclick='addChildKeShi();' class='popup_btn'>添加子课时</a>
+</div>
+
+<div id="opWindow" class="easyui-window" title="" data-options="closed:true,draggable:false,modal:true,iconCls:'icon-manager',minimizable:false,maximizable:false" style="width:1000px;height:500px;">
+			<iframe id="windowIframe" src="" scrolling="auto" frameborder="0"
+			style="width: 100%; height: 100%;" ></iframe>
+</div>
+</body>
+</html>
+<script>
+	$('#list_data').datagrid({
+		url:contextPath+"/system/queryAllKnowledgeCourseSearch?i="+new Date().getTime(),
+		fitColumns:false,
+		singleSelect:false,
+		method:'POST',
+		rownumbers:true,
+		pagination:true,
+		striped:true,
+		onLoadSuccess:onLoadScroll,
+		columns:[[
+			{field:'id',checkbox:true,sortable:true},
+			{field:'knowledgename',title:'知识名称',width:150,sortable:true,align:'center',formatter:contentRenderer},
+			{field:'collegeimage',title:'知识图片',width:150,sortable:true,align:'center',formatter:logoRenderer},
+			{field:'knowledgenum',title:'课时',width:100,sortable:true,align:'center',formatter:contentRenderer},
+			{field:'knowledgetimelong',title:'时长',width:100,sortable:true,align:'center',formatter:contentRenderer},
+			{field:'knowledgeinitprice',title:'原价',width:100,sortable:true,align:'center',formatter:contentRenderer},
+			{field:'knowledgevipprice',title:'VIP价格',width:100,sortable:true,align:'center',formatter:contentRenderer},
+			{field:'knowledgeifprice',title:'是否付费',width:100,sortable:true,align:'center',formatter:priceRenderer},
+			{field:'knowledgepeople',title:'购买人数',width:100,sortable:true,align:'center',formatter:contentRenderer},
+			{field:'knowledgeaddtime',title:'添加时间',width:180,sortable:true,align:'center',formatter:contentRenderer},
+			{field:'remark',title:'备注信息',width:150,sortable:true,align:'center',formatter:contentRenderer},
+			/* {field:'op',title:'',width:0} */
+		]]
+	});
+	//判断是否收费
+	function priceRenderer(value,row,index){
+		if(value!=null && value!=""){
+			var ifprice =  row.knowledgeifprice;
+			if(ifprice == "1"){
+				return "不收费"
+			}else{
+				return "收费"
+			}
+		}else{
+			return "";
+		}
+	}
+	
+	//图片列显示
+	function logoRenderer(value,row,index){
+		if(value!=null && value!=""){
+			return /* value+ */"<a style='color:blue;' href='javascript:showImg(\""+row.boutiqueseriesimageid+"\");'>查看</a>"
+		}else{
+			return "";
+		}
+	}
+	
+	function showImg(logo){
+		parent.messager_alert("查看图片资源","<img src='"+contextPath+"/system/affix/"+logo
+				+"/showImage'style='width:300px;height:200px;' onerror=\"this.src='"+contextPath
+				+"/manager/images/default.jpg'\"/>","info");
+	}
+	
+	
+	function contentRenderer(value,row,index){
+		if(value!=null){
+			if(value.length>10){
+				return "<span title='"+value+"'>"+value+"</span>";
+			}
+			return value;
+		}
+		return "";
+	}
+	
+	//查询
+	function query(){
+		searchGo(contextPath+"/system/queryAllKnowledgeCourseSearch?i="+new Date().getTime(),"#search","#list_data");
+	}
+	//清空
+	function requery(){
+		clearGo(contextPath+"/system/queryAllKnowledgeCourseSearch?i="+new Date().getTime(),"#search","#list_data");
+	}
+	
+	//添加信息
+	function add(){
+		openWindow(contextPath+"/manager/basic/knowledge/knowledge_jpcourse_add.html");
+	}
+	
+	//修改的方法
+	function edit(){
+		var id = getId('#list_data','data');//获取选中的行
+		if(id == ""){
+			return;
+		}
+		openWindow(contextPath+"/manager/basic/knowledge/knowledge_jpcourse_edit.html?id="+id);
+	}
+	
+	// 添加子课时
+	function addChildKeShi(){
+		var ids = getIds('#list_data','data');//获取选中的行
+		if(ids == ""){
+			return;
+		}
+		openWindow(contextPath+"/manager/basic/knowledge/knowledge_jpcourse_ks_list.html?id="+ids);
+	}
+	
+	
+	//行的双击事件
+	function dbClick(rowData){
+		/* openWindow(contextPath+"/manager/system/sysMenu/sysMenu_edit.html?id="+rowData['id']); */
+	}
+	//删除事件
+	function del(){
+		var ids = getIds('#list_data','data');//获取选中的行
+		if(ids == ""){
+			return;
+		}
+		$.messager.confirm('提示','确定要删除吗?',function(r){
+			if(r){
+				$.ajax({
+					type : 'POST',
+					url : contextPath+'/system/deleteKnowledgeCourse',
+					data : {'ids':ids},
+					dataType : "json",
+					success : function(data){
+						$.messager.alert("提示","操作成功!",'info',function(rt){
+							query();
+						});
+					},
+					error:function(response){
+						$.messager.alert("提示","出错了，请联系管理员!",'error',function(rt){
+							$.messager.alert("提示",response.responseText,'error');
+						});
+					}
+				});
+			}
+		});
+	}
+	
+	//更新、删除后调用的查询
+	function updateSearch(){
+		updateSearchGo(contextPath+"/system/queryAllKnowledgeCourseSearch?i="+"?i="+new Date().getTime(),"#search","#list_data");
+	}
+	
+</script>

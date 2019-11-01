@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>一点知识系统</title>
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3"/>
+<meta http-equiv="description" content="this is my page"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<script type="text/javascript" src="../../head.js"></script>
+</head>
+	<body>
+		<form id="my-form">
+			<div id="tools" class="datagrid-toolbar">
+				<a onclick="save();" class="easyui-linkbutton" iconCls="icon-save" plain="true">保存</a>
+				<a onclick="window.location.reload();" class="easyui-linkbutton" iconCls="icon-reload2" plain="true">刷新</a>
+				<a onclick="closeWindow();" class="easyui-linkbutton" iconCls="icon-close" plain="true">关闭</a>
+		    </div>
+			<p id="errorMsg" style="color:red;margin-top:5px;"></p>
+			<table class="formTable" >
+				<tr>
+					<td width="161"  class="tdc1">
+						知识名称：
+					</td>
+					<td>
+						<input type="text" name="collegename" data-options="required:true" class="easyui-validatebox" />
+					</td>
+				</tr>
+				<tr>
+				<td class="tdc1">
+					知识类型：
+				</td>
+				<td>
+					<select id="collegetype" name="collegetype">
+						<option value="1">知识课件</option>
+						<option value="2">知识路径</option>
+						<option value="3">精品系列知识</option>
+						<option value="4">热门知识</option>
+					</select>
+				</td>
+			    </tr>
+				<tr>
+					
+				<td class="pn-flabel pn-flabel-h">知识图片:</td>
+    			<td class="pn-fcontent">
+    				<input type="file" id="collegeimage"style="width:180px;"  name="collegeimage"  
+    			    style="width:150px;" 
+    			    	onchange="uploadFile();"/><br />
+    			<span style="color: red;">* 建议280*280</span>
+    			</td>
+					
+				</tr>
+				<tr>
+				<td class="tdc1">
+					知识介绍：
+				</td>
+				<td colspan="3">
+					<textarea id="collegecontent" name="collegecontent"></textarea>
+				</td>
+			   </tr>
+			   <tr>
+				<td class="tdc1">
+					备注：
+				</td>
+				<td colspan="2">
+					<textarea id="remark" name="remark"></textarea>
+				</td>
+			   </tr>
+			</table>
+		</form>
+	</body>
+</html>
+<script>
+	function checkFormMe(form){
+		return $('#my-form').form('validate');
+	}
+
+	window.onload = function(){
+		for(i=0;i<=228;i++){
+			var icon = "<div onclick=\"checkIcon('icons"+i+"');\" class='icons"+i+"' style='border:1px solid #E0ECFF;width:18px;height:19px;float: left;margin-bottom: 3px;margin-left: 3px;cursor: pointer;'></div>";
+			$('#checkIcon').append(icon);
+		}
+	}
+	function checkIcon(ico){
+		$('#icon').removeClass();
+		$('#icon').addClass(ico);
+		$('#img').val(ico);
+		$('#checkIcons').dialog('close')
+	}
+	
+	var imageurl = "";
+	function uploadFile(){
+	  $.ajaxFileUpload ({
+          url:contextPath+"/system/uploadFile",//用于文件上传的服务器端请求地址
+          secureuri: false, //是否需要安全协议，一般设置为false
+          fileElementId: "collegeimage", //文件上传域的ID
+          dataType: 'json', //返回值类型 一般设置为json
+          data:{},
+          success: function (res){//服务器成功响应处理函数
+				if(res['flag'] == "success"){
+					$.messager.alert("提示","操作成功!");
+					imageurl = res['id'];
+				}else{
+					$.messager.alert("提示","操作失败!",'error');
+				}
+           },
+            error: function (data, status, e){//服务器响应失败处理函数
+                alert(e);
+            }
+         });
+	}
+
+	
+	var id = getPram('id');
+	$('#parentId').val(id);
+	function save(){
+		if(checkFormMe()){
+			var arg = $('#my-form').serializeArray();
+			jQuery.post(contextPath+"/system/addCollegetype?imageurl="+imageurl,arg,
+			function (data) {
+				var res =$.parseJSON(data.toString());
+				if(res['flag'] == "success"){
+					$.messager.alert("提示","操作成功!",'info',function(rt){
+						window.parent.query();
+						closeWindow();
+					});
+				}else{
+					$.messager.alert("提示","操作失败!",'error');
+				}
+			});
+		}
+	}
+</script>

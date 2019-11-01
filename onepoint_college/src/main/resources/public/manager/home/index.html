@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>一点...系统后台</title>
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3"/>
+<meta http-equiv="description" content="this is my page"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<script type="text/javascript" src="../head.js"></script>
+<style type="text/css">
+	.panel-header {
+	  background-color: #33A6F9;
+	  background: -webkit-linear-gradient(top,#33A6F9 0,#33A6F9 100%);
+	  background: -moz-linear-gradient(top,#c9d8eb 0,#33A6F9 100%);
+	  background: -o-linear-gradient(top,#33A6F9 0,#33A6F9 100%);
+	  background: linear-gradient(to bottom,#33A6F9 0,#33A6F9 100%);
+	  background-repeat: repeat-x;
+	  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#33A6F9,endColorstr=#33A6F9,GradientType=0);
+	}
+	.title_{
+	    float: left;
+	    margin-top: 16px;
+	    margin-left:22px;
+	    font-size: 17px;
+	    color: #ffffff;
+	}
+</style>
+</head>
+<body class="easyui-layout" >
+<!-- top div -->
+		<div region="north" class="header-easy" border="fasle">
+			<div class="max-logo" ></div>
+			<span class="title_">一点...</span>
+			<div id="logout"  class="logout">
+				<span id="workshop"></span>
+				<span id="user">admin</span>&nbsp;欢迎登录!&nbsp;
+				<a href=javascript:upPass();>修改密码</a>&nbsp;
+				<a href=javascript:logout();>注销</a>
+			</div>
+		</div>
+		
+		<!-- menu div -->
+		<div region="west" split="false" title="<font color='#000000'>菜单</font>" class="leftMenu" border="false" >
+			<div id="menu" class="easyui-tree" data-options="animate:true,lines:true"></div>
+		</div>
+		
+		
+		<!-- main div -->
+		<div region="center" split="false" style="width: 100%;" border="fasle"> 
+			<div id="tabs" name="tabs" fit="true" class="easyui-tabs" border="fasle">
+				<div title="首页" style="padding: 2px;overflow: hidden;">
+					<iframe id="works" src="" scrolling="auto" frameborder="0"
+						style="width: 100%; height: 100%;" ></iframe>
+				</div>
+			</div>
+		</div>
+       
+       <!-- bottom div -->
+		<div region="south" split="false" class="footBottom" border="false">
+			
+		</div>
+       
+       <div id="upPass" class="easyui-dialog" title="密码修改" style="padding:5px;width:400px;height:auto;" buttons="#btn-buttons" modal="true" resizable="true" closed="true">
+			<table>
+				<tr>
+					<td align="right" width="130">原始密码：</td>
+					<td align="left"><input type="password" name="oldPass" id="oldPass" /><span id="mesg" style="color:red;font-weight:600;"></span></td>
+				</tr>
+				<tr>
+					<td align="right">新密码：</td>
+					<td align="left"><input type="password" name="newPass" id="newPass" /></td>
+				</tr>
+				<tr>
+					<td align="right">重复密码：</td>
+					<td align="left"><input type="password" name="repeatPass" id="repeatPass" /></td>
+				</tr>
+			</table>
+			<div id="btn-buttons">
+				<a class="easyui-linkbutton" onclick="javascript:queDing();">确定</a>
+				<a class="easyui-linkbutton" onclick="javascript:$('#upPass').dialog('close');">取消</a>
+			</div>
+		</div>
+		
+		<div id="tab-tools">
+			<a href="javascript:refreshTabs();" class="easyui-linkbutton" style="background-color: #23CCB7;">刷新</a>
+		</div>
+	</body>
+</html>
+<script>
+	jQuery(function(){
+		if(theme =="customize"){
+			$("#tab-tools").html("<a href=\"javascript:refreshTabs();\" class=\"easyui-linkbutton\" style=\"background-color: #E8ECF7;\"><font style=\"color:#6A97D0\">刷新</font></a>");
+		}
+		//查询当前登陆的人信息
+		$.getJSON(contextPath+"/system/getLoginUser?i="+new Date().getTime(),
+		{},function(data){
+			if(null!=data && undefined!=data){
+				$("#user").text("【"+data.username+"】");
+				if(data.roleId==3){
+					if(null!=data.team){
+						$("#workshop").text(data.team.name);
+					}
+				}else if(data.roleId==2){
+					if(null!=data.workshop){
+						$("#workshop").text(data.workshop.name);
+					}
+				}
+			}
+		});
+		//设置主界面的访问地址
+		$("#works").attr("src",contextPath+"/manager/home/index_main.html");
+		//获取当前登录人的菜单权限集合
+		$.getJSON(contextPath+"/system/listLoginMenu?i="+new Date().getTime(),
+		{},function(data){
+			var menu = $('#menu');
+			for(i in data){
+				var node;
+				if(data[i]['parentObj']!=null){
+					node = $('#menu').tree('find',data[i]['parentObj']['id']);
+				}
+				menu.tree('append', {
+					parent: (node?node.target:null),
+					data: [{
+						id: data[i]['id'],
+						text: data[i]['name'],
+						iconCls: data[i]['img'],
+						state:'open'
+					}]
+				});
+				
+				var link = data[i]['link'];
+				if(link!=null && link.length>5){
+					var thisNode = $('#menu').tree('find',data[i]['id']);
+					menu.tree('update', {
+						target: thisNode.target,
+						attributes:{'url':contextPath+"/"+link}
+					});
+				}
+			}
+			
+			//菜单树的点击
+			menu.tree({
+				onClick: function(node){
+					var arg = node.attributes;
+					if(arg != undefined && arg.url != undefined){
+						addTabs(node.text,arg.url);
+					}
+					return false;
+				},onDblClick:function(node){
+					if(node.state == 'closed')
+						$(this).tree('expand',node.target);
+					else
+						$(this).tree('collapse',node.target);
+				}
+			});
+		});
+		/* jQuery('#tabs').tabs({
+			tools:[{
+				iconCls:'icon-reload2', //刷新当前窗口
+				handler: function(){
+					refreshTabs();
+				}
+			}]
+		}); */
+		
+		jQuery('#tabs').tabs({
+			tools:'#tab-tools'
+		});
+	});
+	
+	
+	//---------------------------------------------添加选项卡---------------------------------------------
+	function addTabs(title,url){
+		var tabs = jQuery("#tabs").tabs("tabs");
+		var length=tabs.length;
+		if(!jQuery('#tabs').tabs('exists',title)){  //添加到选项卡中
+			jQuery('#tabs').tabs('add',{
+				'title':title,
+				'content':'<iframe style="width:100%;height:100%;" scrolling="yes" frameborder="0" src="'+url+'" id="'+title+'" name="tabs'+(length+1)+'"></iframe>',
+				'closable':true
+			});
+			/*双击关闭TAB选项卡*/
+			$(".tabs-inner").dblclick(function(){
+				var subtitle = $(this).children(".tabs-closable").text();
+				$('#tabs').tabs('close',subtitle);
+			});
+		}else{
+			jQuery('#tabs').tabs('select',title);
+		}
+	}
+	
+	//---------------------------------------------刷新当前tabl---------------------------------------------
+	function refreshTabs(id){
+		var currTab;
+		if(id!=null){
+			currTab = $('#tabs').tabs('getTab',id);
+		}else{
+			 currTab = $('#tabs').tabs('getSelected');
+		}
+		var url = $(currTab.panel('options').content).attr('src');
+		var title = $(currTab).panel('options').title;
+		var length = tabs.length;
+		if(url != undefined && title != '首页') {
+			$('#tabs').tabs('update',{
+				tab:currTab,
+				options:{
+					content:'<iframe style="width:100%;height:100%;" scrolling="yes" frameborder="0" src="'+url+'" id="'+title+'" name="tabs'+(length+1)+'" ></iframe>'
+				}
+			});
+		}
+	}
+	
+	///----------------------------------------系统注销---------------------------------------------
+	function logout(){
+		$.messager.confirm('提示','确定要注销吗?',function(r){
+			if(r){
+				$.ajax({
+					url : contextPath+"/system/login_out",
+					type : "GET",
+					dataType : "json",
+					success : function(data) {
+						$.messager.alert("提示", data.message,"info",function(){
+							if(data.flag == 1){
+								window.location.href=contextPath+"/manager/index.html";
+							}
+						});
+					},
+					error : function(response) {
+						$.messager.alert("提示", response.responseText,"error");
+					}
+				});
+			}
+		});
+	}
+	///----------------------------------------密码修改---------------------------------------------
+	function upPass(){//密码修改
+		$('#upPass').dialog('open');
+	}
+	function queDing(){
+		var oldPass = $('#oldPass').val();
+		var newPass = $('#newPass').val();
+		var repeatPass = $('#repeatPass').val();
+		if(oldPass==""){
+			$.messager.alert("提示", "请输入原始密码","info");
+			return;
+		}
+		if(newPass==""){
+			$.messager.alert("提示", "请输入新密码","info");
+			return;
+		}
+		if(repeatPass!=newPass){
+			$.messager.alert("提示", "两次密码输入不一致","info");
+			return;
+		}
+		
+		$.ajax({
+			type : 'POST',
+			url : contextPath+'/system/updateMyPass',
+			data : {'oldPass':oldPass,'newPass':newPass},
+			dataType : "json",
+			success : function(data){
+				if(data.flag==0){
+					$.messager.alert("提示","修改成功!",'info',function(){
+						$('#oldPass').val('');
+						$('#newPass').val('');
+						$('#repeatPass').val('');
+						$('#upPass').dialog('close');
+						window.location.href=contextPath+"manager/index.html";
+					});
+				}else{
+					$.messager.alert("提示",data.message,'info');
+				}
+			},
+			error:function(response){
+				$.messager.alert("提示","出错了，请联系管理员!",'error',function(rt){
+					$.messager.alert("提示",response.responseText,'error');
+				});
+			}
+		});
+	}
+</script>

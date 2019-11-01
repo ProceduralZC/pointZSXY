@@ -1,0 +1,263 @@
+@charset "utf-8";
+/*css document*/
+
+
+.formTable{
+	border-top: 1px #EEEEEE solid;
+	border-bottom: 1px #EEEEEE solid;
+	font-size: 13px;
+	color: #333333;
+	width:100%;
+	border-collapse: collapse;
+}
+.formTable tr {
+	border-bottom: 1px #EEEEEE solid;
+	border-left: 1px #EEEEEE solid;
+	border-right: 1px #EEEEEE solid;
+	height:33px;
+}
+.formTable tr td{
+	font-size: 13px;
+	padding-left: 10px;
+}
+.tdc1{
+	border-top: 1px #FFFFFF solid;
+	color: #333333;
+	background-color: #EEEEEE;
+	text-align:right;
+	font-size: 11px;
+	width:150px;
+}
+
+.formTable input{
+	width: 70%;
+	height: 23px;
+	padding: 0px 3px;
+	line-height: 20px;
+	font-size: 14px;
+	color: #999999;
+	background-color: #FFFFFF;
+	border: 1px #dfdfdf solid;
+	vertical-align: middle;
+	outline: none;
+}
+.formTable select{
+	width: 72%;
+	height: 26px;
+	padding: 0px 0px;
+	line-height: 14px;
+	font-size: 14px;
+	color: #999999;
+	background-color: #FFFFFF;
+	border: 1px #dfdfdf solid;
+	vertical-align: middle;
+	outline: none;
+}
+.formTable textarea{
+	resize: none;
+	width: 70%;
+	height: 80px;
+	padding: 0px 3px;
+	line-height: 18px;
+	font-size: 14px;
+	color: #999999;
+	background-color: #FFFFFF;
+	vertical-align: middle;
+	border: 1px #dfdfdf solid;
+	overflow:auto;
+	outline: none;
+	margin: 2px 0;
+}
+.formTable tr td input:focus,
+.formTable tr td select:focus,
+.formTable tr td textarea:focus{ 
+	background-color: #e4fefb;
+	border-color: #CDCBCB;
+}
+.formTable tr td input:hover,
+.formTable tr td select:hover,
+.formTable tr td textarea:hover{ 
+	border-color: #CDCBCB;
+}
+input.inputError{
+	border:1px #FA052D solid;
+}
+/* 表头表体 */
+/* ================================ */
+.heng {
+	background: #EEEEEE;
+	width: 99%;
+	height: 30px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	line-height: 30px;
+	padding-left: 10px;
+	font-size: 14px;
+	color: #333333;
+}
+
+.formTitle{
+	font-size:17px;
+	font-weight: 500;
+	display: block;
+	text-align: center;
+}
+
+.bodyHead{
+	text-align:center;
+	width: 100%;
+	height:auto;
+	margin-top: 10px;
+}
+.bodyHead ul {
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	list-style-type: none;
+	clear: left;
+	height:auto;
+}
+.bodyHead ul li {
+	margin: 0px;
+	padding: 0px;
+	padding-top:5px;
+	float: left;
+}
+.bodyHead ul li select {
+	height:22px;
+	width:180px;
+	border-bottom:1px solid #ADADAD;
+	border-top:none;
+	border-left:none;
+	border-right:none;
+	outline: none;
+}
+.bodyHead ul li input {
+	height:22px;
+	width:180px;
+	line-height:22px;
+	border-bottom:1px solid #ADADAD;
+	border-top:none;
+	border-left:none;
+	border-right:none;
+	outline: none;
+}
+
+.bodyHead ul li textarea {
+	border:1px solid #ADADAD;
+	outline: none;
+}
+
+.bodyHead_li1 {
+	width: 100px;
+	min-height: 30px;
+	text-align: right;
+	padding-right: 5px;
+	padding-top: 5px;
+	line-height: 20px;
+}
+.bodyHead_li2 {
+	width: 22%;
+	min-height: 30px;
+	text-align:left;
+	padding-left:5px;
+	padding-top: 5px;
+}
+/* ================================ */
+.detailTable{
+	width:100%;
+	border-top:1px solid #EDEDED;
+	border-left:1px solid #EDEDED;
+	margin-bottom: 40px;
+	border-collapse:collapse;
+	margin-top: 10px;
+}
+.detailTable thead tr{
+	background: #F7F7F7;
+	height:28px;
+}
+.detailTable thead tr th{
+	text-align:center;
+	border-right:1px solid #EDEDED;
+	border-bottom:1px solid #EDEDED;
+}
+.detailTable thead tr th input{
+	width:16px;
+	height:16px;
+}
+.detailTable tbody tr td{
+	height:25px;
+	border-right:1px solid #EDEDED;
+	border-bottom:1px solid #EDEDED;
+}
+.detailTable tbody tr:hover{
+	background: #E4FEFB;
+}
+.detailTable tbody tr td input{
+	width:100%;
+	height:25px;
+	line-height:25px;
+	border:0px;
+	/* background: transparent; */
+	outline: none;
+}
+.detailTable tbody tr td select{
+	width:100%;
+	height:25px;
+	border:0px;
+	/* background: transparent; */
+	outline: none;
+}
+.detailTable .no{
+	text-align: center;
+	background: #F7F7F7;
+}
+.detailTable .tit{
+	background: #23CCB7;
+}
+.bodyFooter{
+	position: fixed;
+	bottom: 0;
+	padding-bottom: 10px;
+	background: #ffffff;
+}
+.shenhe1 {
+	position: fixed;
+	width: 250px;
+	height: 170px;
+	margin-left: -175px;
+	margin-top: -85px;
+	top: 50%;
+	left: 50%;
+	background:url("../../images/shenhe1.png") no-repeat;
+	background-size:100%;
+	border: 0px solid red;
+	display: none;
+}
+.shenhe2 {
+	position: fixed;
+	width: 250px;
+	height: 170px;
+	margin-left: -175px;
+	margin-top: -85px;
+	top: 50%;
+	left: 50%;
+	background:url("../../images/shenhe2.png") no-repeat;
+	background-size:100%;
+	border: 0px solid red;
+	display: none;
+}
+.invoicePrint{
+	position: fixed;
+	width: 250px;
+	height: 170px;
+	margin-left: -175px;
+	margin-top: -200px;
+	top: 50%;
+	left: 50%;
+	background:url("../../images/invoicePrint.png") no-repeat;
+	background-size:100%;
+	border: 0px solid red;
+	display: none;
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>一点...系统后台</title>
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3"/>
+<meta http-equiv="description" content="this is my page"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<script type="text/javascript" src="../head.js"></script>
+</head>
+<body class="maxLogin-bg">
+	<form action="login_do" onsubmit="return false;" autocomplete="off">
+		<div class="maxLogin-section">
+			<div class="maxLogin-logo">&nbsp;</div>
+			<div class="maxLogin-head">&nbsp;</div>
+			<div class="login-error" id="errorMes"></div>
+			<div class="formInput">
+				<div class="un">
+					<label class="lable-username" for="username">&nbsp;</label> <input
+						type="text" id="username" name="username" class="maxLogin-un"
+						placeholder="用户名" />
+				</div>
+				<div class="pw">
+					<label class="lable-password" for="password">&nbsp;</label> <input
+						type="password" id="password" name="password" class="maxLogin-pw"
+						placeholder="密码" />
+				</div>
+				<div class="rc">
+					<label class="lable-randomcode" for="randomCode">&nbsp;</label> 
+						<input type="text" id="randomCode" name="randomCode" class="maxLogin-rc" placeholder="验证码" /> 
+						<img src="" title="看不清楚?点击换一张" onclick="reloadImage();" id="random" />
+				</div>
+				<div class="maxBtn">
+					<button id="loginBut" onclick="login();" class="maxLogin-btn">登录</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</body>
+</html>
+<script>
+	 if(self!=top){/*//判断在不在框架中，如果为true跳出框架*/
+		top.location = location;
+	 }
+	 window.onload = function(){
+		 $('#username').focus();
+	 }
+ 	function login(){
+	 	if($('#username').val()=="  "){
+	 		$('#random').attr('src',contextPath+'/system/getRandomCode?sRand=5210&i='+new Date().getTime());
+	 		$('#random').load(function(){
+ 	 			$('#username').val('admin');
+		 		$('#password').val('123');
+		 		$('#randomCode').val('5210');
+	 		});
+	 	}
+	 	
+	 	if($('#username').val()==""){
+	 		$('#errorMes').text('请输入用户名!');
+	 		$('#errorMes').addClass('login-mes');
+	 		$('#username').select();
+	 		return;
+	 	}
+	 	if($('#password').val()==""){
+	 		$('#errorMes').text('请输入密码!');
+			$('#errorMes').addClass('login-mes');
+	 		$('#password').select();
+	 		return;
+	 	}
+	 	if($('#randomCode').val()==""){
+	 		$('#errorMes').text('请输入验证码!');
+	 		$('#errorMes').addClass('login-mes');
+	 		$('#randomCode').select();
+	 		return;
+	 	}
+	 	$('#errorMes').text('');
+	 	$('#errorMes').removeClass('login-mes');
+	 	$('#loginBut').text('登录中...');
+		$.ajax({
+			url : contextPath+"/system/userLogin",
+			type : "POST",
+			dataType : "json",
+			data : {username:$('#username').val(),password:$('#password').val(),randomCode:$('#randomCode').val()},
+			success : function processJson(data) {
+				$('#errorMes').addClass('login-mes');
+				if(data.flag == 0){
+					$('#errorMes').text(data.message);
+					window.location.href = contextPath+'/manager/home/index.html';
+				}else{
+					$('#errorMes').text(data.message);
+					if(data.flag==1){
+						$('#randomCode').select();
+					}
+					reloadImage();
+				}
+				$('#loginBut').text('登录');
+			},
+			error : function(response) {
+				$.messager.alert("提示", "出错了！请联系管理员"+response.responseText,"error");
+			}
+		});
+	}
+ 	reloadImage();
+	function reloadImage(){
+		$('#random').attr('src',contextPath+'/system/getRandomCode?i='+new Date().getTime());
+	}
+ </script>

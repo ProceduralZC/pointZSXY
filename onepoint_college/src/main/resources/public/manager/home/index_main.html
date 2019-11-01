@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>一点...系统后台</title>
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3"/>
+<meta http-equiv="description" content="this is my page"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<script type="text/javascript" src="../head.js"></script>
+</head>
+<body>
+	
+</body>
+</html>
+
+<script>
+	$(function(){//提醒
+		tixing("尊敬的用户欢迎您的登录!");
+	});
+	
+	function tixing(message){
+		$('#upPass').dialog('close');
+		$.messager.show({
+			title:"提示",
+			msg:message,
+			timeout:3000,
+			width:280,
+			height:150,
+			showType:'show' //弹出方式   show   slide  fade
+		});
+	}
+</script>

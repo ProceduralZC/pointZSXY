@@ -1,0 +1,8 @@
+select sum(MATERIA_CLAIM_COUNT) as num,p.id,p.materials ,p.MATERIA_NUMBER,p.MATERIA_CLAIM_COUNT,p.MATERIA_CLAIM_SEC_COUNT 
+from t_materials_inventory p where
+
+p.materials in(select w.materials from t_materials_claim_record w where w.CLAIM_TYPE=2 and w.CLAIM=1) and 
+ MATERIA_CLAIM_COUNT>0 and MATERIA_CLAIM_SEC_COUNT=0 GROUP BY  MATERIA_NUMBER,MATERIA_CLAIM_SEC_COUNT
+ union 
+select MATERIA_CLAIM_COUNT,t.id,t.materials, t.MATERIA_NUMBER,t.MATERIA_CLAIM_COUNT,t.MATERIA_CLAIM_SEC_COUNT 
+from t_materials_inventory t where MATERIA_CLAIM_SEC_COUNT>0 

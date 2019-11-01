@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>仓储物资智能管理跟踪系统</title>
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3"/>
+<meta http-equiv="description" content="this is my page"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<script type="text/javascript" src="../../head.js"></script>
+<script type="text/javascript" src="../../script/ajaxfileupload.js"></script>
+ <style type="text/css">
+    	.fileDiv{
+    		padding-top: 5px;
+    		padding-bottom: 5px;
+    		line-height: 20px;
+    	}
+  </style>
+</head>
+<body>
+	<div id="tools" class="datagrid-toolbar">
+		<a onclick="save();" class="easyui-linkbutton" iconCls="icon-save" plain="true">保存</a>
+		<a onclick="window.location.reload();" class="easyui-linkbutton" iconCls="icon-reload2" plain="true">刷新</a>
+		<a onclick="closeWindow();" class="easyui-linkbutton" iconCls="icon-close" plain="true">关闭</a>
+    </div>
+    
+	<form id="myForm" name="myForm" method="post">
+		<table class="formTable">
+			<tr>
+				<td class="tdc1">
+					版本号：
+				</td>
+				<td>
+ 				   <input type="text" name="versionNum" id="versionNum" data-options="required:true" class="easyui-validatebox" />
+				</td>
+			</tr>
+			<tr>
+				<td class="tdc1">
+					 版本更新日期：
+				</td>
+				<td>
+					<input type="text" name="updateDate" id="updateDate" readonly="readonly"  class="input_ Wdate" 
+						onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" />
+				</td>
+			</tr>
+			<tr>
+				<td class="tdc1">
+					上传文件：
+				</td>
+				<td>
+					<input type="hidden" name="apkId" id="apkId" />
+					<input type="file" id="file" name="file"  />
+					<a class="easyui-linkbutton" iconCls="icon-ok" plain="true" onclick="ajaxFileUpload();">上传</a><br/>
+					<div class="fileDiv" id="fileNames"></div>
+				</td>
+			</tr>
+			<tr>
+				<td class="tdc1">
+					更新内容：
+				</td>
+				<td>
+ 				    <input type="hidden" id="status" name="status" value="1"/>
+					<textarea  cols="60" id="content" name="content" rows="40" style="width:99%;height:300px;"></textarea> 
+				</td>
+			</tr>
+		</table>
+   </form>
+</body>
+</html>
+<script>
+	function checkFormMe(){
+		if($("#apkId").val()==''){
+			$.messager.alert("提示","上传的文件不能为空",'warning');
+			return;
+		}
+	   return $('#myForm').form('validate');
+	}
+	
+	function save(){
+		if(checkFormMe()){
+			var arg = $('#myForm').serializeArray();
+			jQuery.post(contextPath+"/system/addVersion",arg,
+			function (data) {
+				var res =$.parseJSON(data.toString());
+				if(res['flag'] == "success"){
+					$.messager.alert("提示","操作成功!",'info',function(rt){
+						window.parent.query();
+						closeWindow();
+					});
+				}else if(res['flag'] == "error"){
+					$.messager.alert("提示",res['message'],'warning');
+				}else{
+					$.messager.alert("提示","操作失败!",'error');
+				}
+			});
+		}
+	}
+	
+	//上传
+	function ajaxFileUpload(){
+		var filename = $("#file").val();
+		if(filename==""){
+			$.messager.alert("提示",'附件不能为空!','warning');
+			return;
+		}
+    	var fileTArr=filename.toLowerCase().split("."); 
+    	var filetype=fileTArr[fileTArr.length-1]; 
+    	if(filetype!="apk"){
+    		$.messager.alert("提示",'只能上传apk格式文件!','warning');
+			return;
+		}
+        $.ajaxFileUpload ({
+	        url:contextPath+"/system/affix",//用于文件上传的服务器端请求地址
+	        secureuri: false, //是否需要安全协议，一般设置为false
+	        fileElementId: 'file', //文件上传域的ID
+	        dataType: 'json', //返回值类型 一般设置为json
+	        data:{},
+	        success: function (res,status){  //服务器成功响应处理函数
+	        	if(null!=res){
+	        		if(res['flag'] == "success"){
+						$.messager.alert("提示","操作成功!",'info',function(rt){
+							$("#apkId").val(res['id']);
+							 getAffixs(res['id']);
+						});
+					}else if(res['flag'] == "error"){
+						$.messager.alert("提示",res['message'],'warning');
+					}
+	        	}else{
+					$.messager.alert("提示","操作失败!",'error');
+				}
+            },
+            error: function (data, status, e){//服务器响应失败处理函数
+				$.messager.alert("提示",e,"error");
+            }
+        });
+        return false;
+	}
+	//获取附件
+	function getAffixs(id){
+        $.ajax({
+			type : "GET",
+			url : contextPath+"/system/getAffix",
+			data : {'id':id},
+			dataType : "json",
+			success : function(data){
+				$('#fileNames').html('');
+				/* var html = "<a href=\contextPath+"/system/affix/"+data['id']+"/download\">下载</a>&nbsp;"+
+				"["+data['name']+"]</br>"; */
+				var html = "["+data['name']+"]</br>";
+				$('#fileNames').append(html);
+			},
+			error:function(response){
+				$.messager.alert("提示","出错了，请联系管理员!",'error',function(rt){
+					$.messager.alert("提示",response.responseText,'error');
+				});
+			}	 
+		});
+	}
+</script>		 

@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>仓储物资智能管理跟踪系统</title>
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3"/>
+<meta http-equiv="description" content="this is my page"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<script type="text/javascript" src="../../head.js"></script>
+</head>
+	<body>
+		<form id="my-form">
+			<div id="tools" class="datagrid-toolbar">
+				<a onclick="save();" class="easyui-linkbutton" iconCls="icon-save" plain="true">保存</a>
+				<a onclick="window.location.reload();" class="easyui-linkbutton" iconCls="icon-reload2" plain="true">刷新</a>
+				<a onclick="closeWindow();" class="easyui-linkbutton" iconCls="icon-close" plain="true">关闭</a>
+		    </div>
+			<p id="errorMsg" style="color:red;margin-top:5px;"></p>
+			<table class="formTable" >
+				<tr>
+					<td width="161"  class="tdc1">
+						名称：
+					</td>
+					<td>
+						<input type="text" name="name" data-options="required:true" class="easyui-validatebox" />
+					</td>
+				</tr>
+				<tr>
+					<td  class="tdc1">
+						描述：
+					</td>
+					<td>
+						<input type="text" name="description" data-options="required:true" class="easyui-validatebox"/>
+					</td>
+				</tr>
+							<tr>
+					<td  class="tdc1">
+						别名：
+					</td>
+					<td>
+						<input type="text" name="alias" data-options="required:true" class="easyui-validatebox">
+					</td>
+				</tr>
+				<tr>
+					<td  class="tdc1">
+						IMG图片：
+					</td>
+					<td>
+						<div id="icon" class="icons0" style="width:20px;height:20px;float: left;margin-top: 3px;"></div>
+						<a onclick="$('#checkIcons').dialog('open')" id="checkImg" class="easyui-linkbutton" iconCls="icon-search" plain="true">选择</a>
+						<input type="hidden" name="img" id="img"/>
+							
+						<div id="checkIcons" class="easyui-dialog" title="图标选择" style="padding:5px;width:400px;height:200px;overflow-y:auto;" resizable="true" modal="true" closed="true">
+							<div id="checkIcon"></div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td  class="tdc1">
+						链接地址：
+					</td>
+					<td>
+						<input name="link" class="easyui-validatebox"/>
+					</td>
+				</tr>
+				<tr>
+					<td  class="tdc1">
+						索引：
+					</td>
+					<td>
+						<input type="text" name="orderBy" id="orderBy" value="1" data-options="required:true,min:1,max:100,editable:true" 
+							class="easyui-numberspinner" style="width:240px;height:23px;"/>
+						<input type="hidden" name="parentId" id="parentId" />
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>
+<script>
+	function checkFormMe(form){
+		return $('#my-form').form('validate');
+	}
+
+	window.onload = function(){
+		for(i=0;i<=228;i++){
+			var icon = "<div onclick=\"checkIcon('icons"+i+"');\" class='icons"+i+"' style='border:1px solid #E0ECFF;width:18px;height:19px;float: left;margin-bottom: 3px;margin-left: 3px;cursor: pointer;'></div>";
+			$('#checkIcon').append(icon);
+		}
+	}
+	function checkIcon(ico){
+		$('#icon').removeClass();
+		$('#icon').addClass(ico);
+		$('#img').val(ico);
+		$('#checkIcons').dialog('close');
+	}
+
+	
+	var id = getPram('id');
+	var view = new FormView('#my-form',contextPath+'/system/getSysMenu/'+id);
+	view.doLoad(loadParent);
+	function loadParent(model) {
+		if(model["parentObj"]!=null){
+	 		$('#parentId').val(model["parentObj"]['id']);
+	 	}
+	 	$('#icon').removeClass();
+		$('#icon').addClass(model['img']);
+	}
+	
+	function save(){
+		if(checkFormMe()){
+			var arg = $('#my-form').serializeArray();
+			jQuery.post(contextPath+"/system/updateSysMenu/"+id,arg,
+			function (data) {
+				var res =$.parseJSON(data.toString());
+				if(res['flag'] == "success"){
+					$.messager.alert("提示","操作成功!",'info',function(rt){
+						window.parent.query();
+						closeWindow();
+					});
+				}else{
+					$.messager.alert("提示","操作失败!",'error');
+				}
+			});
+		}
+	}
+</script>

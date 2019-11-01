@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>一点知识系统</title>
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3"/>
+<meta http-equiv="description" content="this is my page"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<script type="text/javascript" src="../../head.js"></script>
+</head>
+<body>
+	<div>&nbsp;</div>
+	<form id="myForm" name="myForm" method="post">
+		<table class="formTable">
+			<tr>
+				<td class="tdc1">
+					课程标题：
+				</td>
+				<td>
+					<input type="text" name="videotitle" id="videotitle" class="easyui-validatebox" data-options="required:true" maxlength="100" />
+				</td>
+				<td class="tdc1">
+					课程时长(小时)：
+				</td>
+				<td>
+					<input type="text" name="videolong" id="videolong" data-options="required:true,min:0,precision:0"  class="easyui-numberbox" />
+				</td>
+				
+			</tr>
+			
+			<tr>
+				<td class="tdc1">
+					课程类型：
+				</td>
+				<!-- <td>
+					<input type="text" name="videotype" id="videotype" class="easyui-validatebox" data-options="required:true" maxlength="100"/>
+				</td> -->
+				<td>
+					<select id="videotype" name="videotype">
+						<option value="1">基础视频</option>
+						<option value="2">一般视频</option>
+						<option value="3">经典视频</option>
+					</select>
+				</td>
+				<td class="tdc1">
+					课程路径：
+				</td>
+				<td>
+					<input type="text" name="videourl" id="videourl" class="easyui-validatebox" data-options="required:true" maxlength="100" />
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="tdc1">
+					资源类型：
+				</td>
+				<!-- <td>
+					<input type="text" name="videotype" id="videotype" class="easyui-validatebox" data-options="required:true" maxlength="100"/>
+				</td> -->
+				<td>
+					<select id="videosourcetype" name="videosourcetype">
+						<option value="1">视频</option>
+						<option value="2">课件</option>
+						<option value="3">ppt</option>
+						<option value="4">文档</option>
+						<option value="5">图片</option>
+					</select>
+				</td>
+				<!-- <td class="tdc1">
+					提交日期：
+				</td>
+				<td>
+					<input type="text" name="qldshenqingtime" id="qldshenqingtime" readonly="readonly"  class="input_ Wdate" 
+						onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" />
+				</td> -->
+			</tr>
+			
+			<tr>
+				<td class="tdc1">
+					课程介绍：
+				</td>
+				<td colspan="3">
+					<textarea id="videodetail" name="videodetail"></textarea>
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="tdc1">
+					备注：
+				</td>
+				<td colspan="3">
+					<textarea id="remark" name="remark"></textarea>
+				</td>
+			</tr>
+		</table>
+		<input type="hidden" name="status" id="status"  value="0"/>
+		<div id="tools" class="datagrid-toolbar" style="text-align: center;">
+			<a onclick="save();" class="popup_btn" >提交申请</a>
+			<a onclick="window.location.reload();"class="popup_btn" >重新输入</a>
+			<a onclick="closeWindow();" class="popup_btn" >关闭</a>
+    	</div>
+   </form>
+</body>
+</html>
+<script>   
+	
+	function checkFormMe(){
+	   return $('#myForm').form('validate');
+	}
+	
+	//提交申请
+	function save(){
+		if(checkFormMe()){
+			var arg = $('#myForm').serializeArray();
+			jQuery.post(contextPath+"/system/addVideo",arg,
+			function (data) {
+				var res =$.parseJSON(data.toString());
+				if(res['flag'] == "success"){
+					$.messager.alert("提示","操作成功!",'info',function(rt){
+						/* window.parent.query(); *///父类查询添加后的信息
+						closeWindow();
+					});
+				}else if(res['flag'] == "error"){
+					$.messager.alert("提示",res['message'],'warning');
+				}else{
+					$.messager.alert("提示","操作失败!",'error');
+				}
+			});
+		}
+	}
+</script>		 

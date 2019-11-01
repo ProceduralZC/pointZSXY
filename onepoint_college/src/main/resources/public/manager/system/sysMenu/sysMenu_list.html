@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>仓储物资智能管理跟踪系统</title>
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3"/>
+<meta http-equiv="description" content="this is my page"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<script type="text/javascript" src="../../head.js"></script>
+</head>
+<body>
+	<div id="tools" class="datagrid-toolbar">
+		<a onclick="add();"  class="easyui-linkbutton" iconCls="icon-add" plain="true">新增</a>
+		<a onclick="edit();" class="easyui-linkbutton" iconCls="icon-edit" plain="true">编辑</a>
+		<a onclick="del();"  class="easyui-linkbutton" iconCls="icon-cancel" plain="true">删除</a>
+    </div>
+    
+	<table id="list_tree" class="easyui-treegrid" data-options="
+			rownumbers: true,
+			animate: true,
+			singleSelect:true,
+			collapsible: true,
+			fitColumns: true,
+			idField: 'id',
+			treeField: 'name',
+			onDblClickRow:dbClick,
+			onDrop:drop,
+			onLoadSuccess: function(row){
+                $(this).treegrid('enableDnd', row?row.id:null);
+            }
+		">
+		<thead>
+			<tr>
+				<th data-options="field:'id',checkbox:true">操作</th>
+				<th data-options="field:'name',width:180">菜单名称</th>
+				<th data-options="field:'alias',width:180">别名</th>
+				<th data-options="field:'curDate',width:180">更新日期</th>
+				<th data-options="field:'description',width:180">描述</th>
+			</tr>
+		</thead>
+	</table>
+</body>
+</html>
+<script>
+
+	function drop(target , source , point){
+		$.ajax({
+			type : 'POST',
+			url : contextPath+'/system/changeNode',
+			data:{
+				targetId:target.id , 
+				sourceId:source.id , 
+				point:point
+			} , 
+			dataType : "json",
+			success : function(data){
+				var res =data;
+				if(res['flag'] == "success"){
+					$.messager.alert("提示","操作成功!",'info',function(rt){
+						query();
+					});
+				}
+			},
+			error:function(response){
+				$.messager.alert("提示","出错了，请联系管理员!",'error',function(rt){
+					$.messager.alert("提示",response.responseText,'error');
+				});
+			}
+		});
+	}
+	//添加的方法
+	function add(){
+		var id = getId('#list_tree','tree');
+		if(id==""){
+			return;
+		}
+		openWindow(contextPath+"/manager/system/sysMenu/sysMenu_add.html?id="+id);
+	}
+	//修改的方法
+	function edit(){
+		var id = getId('#list_tree','tree');//获取选中的行
+		if(id == ""){
+			return;
+		}
+		openWindow(contextPath+"/manager/system/sysMenu/sysMenu_edit.html?id="+id);
+	}
+	//行的双击事件
+	function dbClick(rowData){
+		openWindow(contextPath+"/manager/system/sysMenu/sysMenu_edit.html?id="+rowData['id']);
+	}
+	//删除事件
+	function del(){
+		var ids = getId('#list_tree','tree');//获取选中的行ids
+		if(ids == ""){
+			return;
+		}
+		if(ids==1){
+			$.messager.alert("提示","此节点不能删除!",'info');
+			return;
+		}
+		$.messager.confirm('提示','确定要删除吗?',function(r){
+			if(r){
+				$.ajax({
+					type : 'POST',
+					url : contextPath+'/system/delSysMenu',
+					data : {'ids':ids},
+					dataType : "json",
+					success : function(data){
+						var res =data;
+						if(res['flag'] == "success"){
+							$.messager.alert("提示","操作成功!",'info',function(rt){
+								query();
+							});
+						}
+					},
+					error:function(response){
+						$.messager.alert("提示","出错了，请联系管理员!",'error',function(rt){
+							$.messager.alert("提示",response.responseText,'error');
+						});
+					}
+				});
+			}
+		});
+	}
+	
+	//查询
+	function query(){
+		requery();
+		$.getJSON(contextPath+"/system/sysMenus?i="+new Date().getTime(),{
+		},function(data){
+			for(i in data){
+				var parentId ;
+				var iconCls = data[i]['img']
+				if(data[i]['parentObj']!=null){
+					parentId = data[i]['parentObj']['id'];
+				}
+				$('#list_tree').treegrid('append',{
+					parent: parentId,
+					data: [{
+						iconCls: iconCls,
+						id: data[i]['id'],
+						name: data[i]['name'],
+						alias: data[i]['alias'],
+						curDate: data[i]['curDate'],
+						description: data[i]['description']
+					}]
+				});
+			}
+		});
+	}
+	//清空
+	function requery(){
+		$('#list_tree').treegrid({data:[]});
+	}
+	query();
+</script>		 

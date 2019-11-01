@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>仓储物资智能管理跟踪系统</title>
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3"/>
+<meta http-equiv="description" content="this is my page"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<script type="text/javascript" src="../../head.js"></script>
+</head>
+<body>
+	<div id="tools" class="datagrid-toolbar">
+		<a onclick="menuSet();"  class="easyui-linkbutton" iconCls="icon-tip" plain="true">配置菜单</a>
+    </div>
+	<table id="list_data"></table>
+	<br/>
+	<div style="color:red;font-family: inherit;font-size: 20px;font-weight: bold;">此页禁止用户操作!</div>
+</body>
+</html>
+<script>
+	var URL = contextPath+"/system/findSysRole";
+	$('#list_data').datagrid({
+		url:URL+"?i="+new Date().getTime(),
+		fitColumns:true,
+		singleSelect:true,
+		rownumbers:true,
+		pagination:false,
+		sortName:'id',
+		sortOrder:'desc',
+		method:'POST',
+		striped:true,
+		columns:[[
+			{field:'id',checkbox:true},
+			{field:'name',title:'角色名称',width:100,sortable:true},
+			{field:'remark',title:'角色描述',width:100,sortable:true}
+		]],
+	});
+
+	//添加的方法
+	function add(update){
+		openWindow(contextPath+"/manager/system/sysRoles/sysRole_add.html");
+	}
+	//修改的方法
+	function edit(){
+		var id = getId('#list_data','data');//获取选中的行
+		if(id == ""){
+			return;
+		}
+		openWindow(contextPath+"/manager/system/sysRoles/sysRole_edit.html?id="+id);
+	}
+	//行的双击事件
+	function dbClick(rowIndex,rowData){
+		openWindow(contextPath+"/manager/system/sysRoles/sysRole_edit.html?id="+rowData['id']);
+	}
+	//删除事件
+	function del(){
+		var ids = getIds('#list_data','data');//获取选中的行ids
+		if(ids == ""){
+			return;
+		}
+		$.messager.confirm('提示','确定要删除吗?',function(r){
+			if(r){
+				$.ajax({
+					type : 'POST',
+					url : contextPath+'/system/delSysRole',
+					data : {'ids':ids},
+					dataType : "json",
+					success : function(data){
+						$.messager.alert("提示","操作成功!",'info',function(rt){
+							query();
+						});
+					},
+					error:function(response){
+						$.messager.alert("提示","出错了，请联系管理员!",'error',function(rt){
+							$.messager.alert("提示",response.responseText,'error');
+						});
+					}
+				});
+			}
+		});
+	}
+	//配置菜单
+	function menuSet(){
+		var id = getId('#list_data','data');//获取选中的行
+		if(id == ""){
+			return;
+		}
+		openWindow(contextPath+"/manager/system/sysRoles/sysRole_menu.html?id="+id);
+	}
+	//配置机构
+	function orgSet(){
+		var id = getId('#list_data','data');//获取选中的行
+		if(id == ""){
+			return;
+		}
+		openWindow(contextPath+"/manager/system/sysRoles/sysRole_org.html?id="+id);
+	}
+	//配置权限
+	function popedomSet(){
+		var id = getId('#list_data','data');//获取选中的行
+		if(id == ""){
+			return;
+		}
+		openWindow(contextPath+"/manager/system/sysRoles/sysRole_popedom.html?id="+id);
+	}
+	//查询
+	function query(){
+		searchGo(URL+"?i="+new Date().getTime(),"#search","#list_data");
+	}
+	//清空
+	function requery(){
+		clearGo(URL+"?i="+new Date().getTime(),"#search","#list_data");
+	}
+</script>		 

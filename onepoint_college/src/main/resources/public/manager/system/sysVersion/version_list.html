@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>仓储物资智能管理跟踪系统</title>
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3"/>
+<meta http-equiv="description" content="this is my page"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<script type="text/javascript" src="../../head.js"></script>
+</head>
+<body>
+	<div id="tools" class="datagrid-toolbar">
+		<a onclick="add();"   class="easyui-linkbutton" iconCls="icon-add" plain="true">新增</a>
+		<a onclick="edit();"  class="easyui-linkbutton" iconCls="icon-edit" plain="true">编辑</a>
+		<a onclick="del();"   class="easyui-linkbutton" iconCls="icon-cancel" plain="true">删除</a>
+		<!-- <a onclick="downApk();" class="easyui-linkbutton" iconCls="icon-down" plain="true">下载文件</a> -->
+    </div>
+	<table id="list_data"></table>
+</body>
+</html>
+<script>
+	var URL = contextPath+"/system/versions";
+	$('#list_data').datagrid({
+		url:URL+"?i="+new Date().getTime(),
+		fitColumns:true,
+		singleSelect:false,
+		queryParams:{type:1},
+		rownumbers:true,
+		pagination:true,
+		sortName:'id',
+		sortOrder:'desc',
+		striped:true,
+		onLoadSuccess:onLoadScroll,
+		onDblClickRow:dbClick,//行的双击事件
+		columns:[[
+			{field:'id',checkbox:true,sortable:true},
+			{field:'versionNum',title:'版本号',width:100,sortable:true,align:'center'},
+			{field:'apk.name',title:'文件名称',width:100,sortable:true,align:'center'},
+			{field:'updateDate',title:'版本更新日期',width:100,sortable:true,align:'center'},
+			{field:'status',title:'状态',width:100,sortable:true,formatter:statusRenderer,align:'center'},
+			{field:'createDate',title:'创建时间',width:100,sortable:true,align:'center'}
+		]]
+	});
+
+	function statusRenderer(value,row,index){
+		switch(value){
+			case 1:
+				return '<font color=#A2CD5A>启用</font>';
+			case 0:
+				return '<font color=#919191>停用</font>';
+		   	default:
+		   		return '未知'+value;
+		}
+	}
+	
+	//添加的方法
+	function add(){
+		openWindow(contextPath+"/manager/system/sysVersion/version_add.html");
+	}
+	//修改的方法
+	function edit(){
+		var id = getId('#list_data','data');//获取选中的行
+		if(id == ""){
+			return;
+		}
+		openWindow(contextPath+"/manager/system/sysVersion/version_edit.html?id="+id);
+	}
+	//行的双击事件
+	function dbClick(rowIndex,rowData){
+		openWindow(contextPath+"/manager/system/sysVersion/version_edit.html?id="+rowData['id']);
+	}
+	
+	//删除
+	function del(){
+		var ids = getIds('#list_data','data');//获取选中的行
+		if(ids == ""){
+			return;
+		}
+		$.messager.confirm('提示','确定要删除吗?',function(r){
+			if(r){
+				$.ajax({
+					type : 'POST',
+					url : contextPath+'/system/delVersion',
+					data : {'ids':ids},
+					dataType : "json",
+					success : function(data){
+						$.messager.alert("提示","操作成功!",'info',function(rt){
+							updateSearch();
+						});
+					},
+					error:function(response){
+						$.messager.alert("提示","出错了，请联系管理员!",'error',function(rt){
+							$.messager.alert("提示",response.responseText,'error');
+						});
+					}
+				});
+			}
+		});
+	}
+	//查询
+	function query(){
+		searchGo(URL+"?i="+new Date().getTime(),"#search","#list_data");
+	}
+	//清空
+	function requery() {
+		$('#search').find('input').val('');
+		$('#search').find('select').val('-1');
+		clearGo(URL+"?i="+new Date().getTime(),"#search","#list_data");
+	}
+	function downApk(){
+		var data = $('#list_data').datagrid('getChecked');
+		if(data!="" && data.length>0){
+			var id = data[0]['apk']['id'];
+			window.location.href=contextPath+"/system/affix/"+id+"/download";
+		}else{
+			$.messager.alert('提示','请选择!','warning');
+			return;
+		}
+	}
+	
+	//更新、删除后调用的查询
+	function updateSearch(){
+		updateSearchGo(URL+"?i="+new Date().getTime(),"#search","#list_data");
+	}
+</script>		 

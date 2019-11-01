@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>一点知识系统</title>
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3"/>
+<meta http-equiv="description" content="this is my page"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<script type="text/javascript" src="../../head.js"></script>
+<script type="text/javascript" src="../../script/ajaxfileupload.js"></script>
+</head>
+<body>
+
+<div id="tools" class="datagrid-toolbar">
+		<a onclick="add();"  class="easyui-linkbutton" iconCls="icon-add" plain="true">新增</a>
+</div>
+
+ <form id="jvForm" action="" enctype="multipart/form-data" method="post">
+	<div id="search" class="datagrid-toolbar">
+		<table>
+			    <tr>
+					<td align="right">提交时间：</td>
+				    <td align="left">
+					<input name="startDate" id="startDate" class="Wdate" style="width:100px;" 
+						onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',maxDate:'#F{$dp.$D(\'endDate\')}'})" />-
+					<input name="endDate" id="endDate" class="Wdate" style="width:100px;" 
+						onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'#F{$dp.$D(\'startDate\')}'})" />
+				    </td>
+				    
+					<td align="right">课程标题：</td>
+					<td align="left">
+						<input name="videotitle" id="videotitle" />
+					</td>
+					
+					<td align="right">资源类型：</td>
+					<td>
+					<select id="videosourcetype" name="videosourcetype">
+						<option value="1">视频资源</option>
+						<option value="2">课件资源</option>
+						<option value="3">ppt资源</option>
+						<option value="4">文档资源</option>
+						<option value="5">图片资源</option>
+					</select>
+				</td>
+					
+					<td align="right">提交人：</td>
+					<td align="left">
+						<input name="videouser" id="videouser" />
+					</td>
+					<td align="right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td><a class="easyui-linkbutton" iconCls="icon-search"
+						plain="true" onclick="query();" style="border: 1px solid #99CCFF;">确定</a> 
+					<a class="easyui-linkbutton" iconCls="icon-recycle"
+						plain="true" onclick="requery();" style="border: 1px solid #99CCFF;">重置</a> 
+					</td>
+			   </tr>
+		</table>
+	</div>
+ </form>
+<table id="list_data"></table>
+<br />
+<div id="tools" class="datagrid-toolbar" style="text-align: center;">
+	<a onclick='chuku();' class='popup_btn'>导出</a>
+</div>
+
+<div id="opWindow" class="easyui-window" title="" data-options="closed:true,draggable:false,modal:true,iconCls:'icon-manager',minimizable:false,maximizable:false" style="width:1000px;height:500px;">
+			<iframe id="windowIframe" src="" scrolling="auto" frameborder="0"
+			style="width: 100%; height: 100%;" ></iframe>
+</div>
+</body>
+</html>
+<script>
+	$('#list_data').datagrid({
+		url:contextPath+"/system/queryAllVideo?i="+new Date().getTime(),
+		fitColumns:false,
+		singleSelect:false,
+		method:'POST',
+		rownumbers:true,
+		pagination:true,
+		striped:true,
+		onLoadSuccess:onLoadScroll,
+		columns:[[
+			{field:'id',checkbox:true,sortable:true},
+			{field:'videotitle',title:'课程标题',width:150,sortable:true,align:'center',formatter:contentRenderer},
+			{field:'videolong',title:'课程时长',width:100,sortable:true,align:'center',formatter:contentRenderer},
+			{field:'videosourcetype',title:'资源类型',width:150,sortable:true,align:'center',formatter:contentRenderer},
+			{field:'videotype',title:'课程类型',width:150,sortable:true,align:'center',formatter:contentRenderer},
+			{field:'videouser.truename',title:'提交人',width:150,sortable:true,align:'center',formatter:contentRenderer},
+			{field:'videosubmietime',title:'提交时间',width:150,sortable:true,align:'center',formatter:contentRenderer},
+			{field:'videodetail',title:'课程介绍',width:220,sortable:true,align:'center',formatter:contentRenderer},
+			{field:'videourl',title:'课程路径',width:150,sortable:true,align:'center',formatter:contentRenderer},
+			{field:'remark',title:'备注信息',width:150,sortable:true,align:'center',formatter:contentRenderer},
+			/* {field:'op',title:'',width:0} */
+		]]
+	});
+	
+	
+	function contentRenderer(value,row,index){
+		if(value!=null){
+			if(value.length>10){
+				return "<span title='"+value+"'>"+value+"</span>";
+			}
+			return value;
+		}
+		return "";
+	}
+	
+	//查询
+	function query(){
+		searchGo(contextPath+"/system/queryAllVideoSearch?i="+new Date().getTime(),"#search","#list_data");
+	}
+	//清空
+	function requery(){
+		clearGo(contextPath+"/system/queryAllVideoSearch?i="+new Date().getTime(),"#search","#list_data");
+	}
+	
+	//添加信息
+	function add(){
+		openWindow(contextPath+"/manager/basic/video/video_add.html");
+	}
+	
+</script>

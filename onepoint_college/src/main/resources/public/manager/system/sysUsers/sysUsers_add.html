@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>仓储物资智能管理跟踪系统</title>
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3"/>
+<meta http-equiv="description" content="this is my page"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<script type="text/javascript" src="../../head.js"></script>
+</head>
+<body>
+	<div id="tools" class="datagrid-toolbar">
+		<a onclick="save();" class="easyui-linkbutton" iconCls="icon-save" plain="true">保存</a>
+		<a onclick="window.location.reload();" class="easyui-linkbutton" iconCls="icon-reload2" plain="true">刷新</a>
+		<a onclick="closeWindow();" class="easyui-linkbutton" iconCls="icon-close" plain="true">关闭</a>
+    </div>
+    
+	<form id="myForm" name="myForm" method="post">
+		<table class="formTable">
+			<tr>
+				<td class="tdc1">
+					用户号：
+				</td>
+				<td>
+					<input id="username" name="username" data-options="required:true" class="easyui-validatebox"/>
+				</td>
+				<td class="tdc1">
+					昵称：
+				</td>
+				<td>
+					<input id="nickname" name="nickname" data-options="required:true" class="easyui-validatebox"/>
+				</td>
+			</tr>
+			<tr>
+				<td class="tdc1">
+					密码：
+				</td>
+				<td>
+					<input type="password" id="password" name="password" data-options="required:true" class="easyui-validatebox"/>
+				</td>
+				<td class="tdc1">
+					重复密码：
+				</td>
+				<td>
+					<input type="password" id="password2" required="true" validType="equals['#password']" class="easyui-validatebox"/>
+				</td>
+			</tr>
+			<tr>
+				<td class="tdc1">
+					权限级别：
+				</td>
+				<td>
+					<select id="roleId" name="roleId" onchange="changeGroup(this.value);">
+						
+					</select>
+				</td>
+				<td class="tdc1">
+					电话：
+				</td>
+				<td>
+					<input id="tel" name="tel"  class="easyui-validatebox"/>
+				</td>
+			</tr>
+			<tr>
+				<td class="tdc1">
+					性别：
+				</td>
+				<td>
+					<select id="sex" name="sex">
+						<option value="0">男</option>
+						<option value="1">女</option>
+					</select>
+				</td>
+				<td class="tdc1">
+					用户状态：
+				</td>
+				<td>
+					<select id="status" name="status">
+						<option value="0">启用</option>
+						<option value="1">禁用</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="tdc1">
+					职位：
+				</td>
+				<td>
+					<input id="zhiwei" name="zhiwei" data-options="required:true" class="easyui-validatebox"/>
+				</td>
+				<td class="tdc1">
+					简介：
+				</td>
+				<td>
+					<input id="detail" name="detail" data-options="required:true" class="easyui-validatebox"/>
+				</td>
+			</tr>
+			<tr>
+				<td class="tdc1">
+					邮箱：
+				</td>
+				<td>
+					<input id="email" name="email" data-options="required:true" class="easyui-validatebox"/>
+				</td>
+			</tr>
+			<tr>
+				<td class="tdc1">
+					备注：
+				</td>
+				<td colspan="3">
+					<input type="hidden" id="status" name="status" value="0" />
+					<textarea id="remark" name="remark"></textarea>
+				</td>
+			</tr>
+		</table>
+   </form>
+</body>
+</html>
+<script>
+	function selectWorkshop(){
+		$("#workshopId").empty();
+		$.post(contextPath+"/system/dataDictionary/getListByCode",
+		  {'dataCode':"workshopCode",'depth':2},function(data){
+		     $("#workshopId").append("<option value='-1'>--请选择--</option>");
+		     if(data!=null && data.length>0){
+		    	 for(var i=0;i<data.length;i++){
+		    		 $("#workshopId").append("<option value='"+data[i]['id']+"'>"+data[i]['name']+"</option>"); 
+		    	 }
+		     }
+		 });
+	 }
+	
+	function selectGroup(workshopId){
+		$("#groupId").empty();
+		$.post(contextPath+"/system/dataDictionary/findByParentId/"+workshopId,
+		  {},function(data){
+		     $("#groupId").append("<option value='-1'>--请选择--</option>");
+		     if(data!=null && data.length>0){
+		    	 for(var i=0;i<data.length;i++){
+		    		 $("#groupId").append("<option value='"+data[i]['id']+"'>"+data[i]['name']+"</option>"); 
+		    	 }
+		     }
+		 });
+	 }
+	
+	selectRole();
+	function selectRole(roleId){
+		$("#roleId").empty();
+		$.post(contextPath+"/system/findSysRole",
+		  {},function(data){
+		     if(data!=null && data.length>0){
+		    	 for(var i=0;i<data.length;i++){
+		    		 $("#roleId").append("<option value='"+data[i]['id']+"'>"+data[i]['name']+"</option>"); 
+		    	 }
+		     }
+		});
+	}
+	function changeGroup(roleId){
+		if(roleId==1){//管理员
+			$(".group").hide();
+			$(".workshop").hide();
+			$(".workshop").parent().hide();
+			$("#workshopId").empty();
+			$("#groupId").empty();
+			$("#codeTr").show();
+		}else if(roleId==2){//车间管理员
+			$(".workshop").show();
+			$(".group").hide();
+			$(".workshop").parent().show();
+			$("#groupId").empty();
+			$("#codeTr").hide();
+			selectWorkshop();
+		}else if(roleId==3){//工区管理员
+			$(".workshop").show();
+			$(".group").show();
+			$(".workshop").parent().show();
+			$("#codeTr").hide();
+			selectWorkshop();
+		}
+	}
+	function clickGroup(){
+		var workshopId =$("#workshopId").val();
+		if(workshopId=="-1" || workshopId==""){
+		   $.messager.alert("提示","请先选择车间!",'warning');
+		   return;
+		}
+	}
+	
+	function checkFormMe(){
+		 $.extend($.fn.validatebox.defaults.rules, {    
+			equals: {    
+				validator: function(value,param){
+					return value == $(param[0]).val();    
+	          	},    
+				message: '两次输入的密码不匹配'   
+			}
+	   });
+	   var roleId = $("#roleId").val();
+	   if(roleId=="-1" || roleId==""){
+		   $.messager.alert("提示","请选择权限级别!",'warning');
+		   return;
+	   }
+	   if(roleId==2 || roleId==3){
+		   var workshopId = $("#workshopId").val();
+		   if(workshopId==-1){
+			   $.messager.alert("提示","请选择车间!",'warning');
+			   return;
+		   }
+	   }
+	   var tel = $("#tel").val();
+	   if(tel!=''){
+			if(!checkMobile(tel)){
+				$.messager.alert("提示","请输入正确的电话!",'warning');
+				 return;
+			} 
+	   }
+	   if(roleId==3){//工区管理员
+		   if($("#groupId").val()=='' || $("#groupId").val()=='-1'){
+			   $.messager.alert("提示","请选择工区!",'warning');
+			   return;
+		   }
+	   }
+	   return $('#myForm').form('validate');
+	}
+	
+	function save(){
+		if(checkFormMe()){
+			var arg = $('#myForm').serializeArray();
+			jQuery.post(contextPath+"/system/addSysUsers",arg,
+			function (data) {
+				var res =$.parseJSON(data.toString());
+				if(res['flag'] == "success"){
+					$.messager.alert("提示","操作成功!",'info',function(rt){
+						window.parent.query();
+						closeWindow();
+					});
+				}else if(res['flag'] == "error"){
+					$.messager.alert("提示",res['message'],'warning');
+				}else{
+					$.messager.alert("提示","操作失败!",'error');
+				}
+			});
+		}
+	}
+</script>		 

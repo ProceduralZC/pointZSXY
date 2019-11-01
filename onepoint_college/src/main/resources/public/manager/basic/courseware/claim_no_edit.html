@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>仓储物资智能管理跟踪系统</title>
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3"/>
+<meta http-equiv="description" content="this is my page"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<script type="text/javascript" src="../../head.js"></script>
+</head>
+<body>
+	<form id="myForm" name="myForm" method="post" style="margin-top: 20px;">
+		<table class="formTable">
+			<tr>
+				<td class="tdc1">
+					物资编号：
+				</td>
+				<td>
+					<input type="text" id="materiaNumber" name="materiaNumber" class="easyui-validatebox" data-options="required:true" maxlength="100"/>
+				</td>
+				<td class="tdc1">
+					物资名称：
+				</td>
+				<td>
+					<input type="text" name="materiaName" id="materiaName" class="easyui-validatebox" data-options="required:true" maxlength="100"/>
+				</td>
+			</tr>
+			<tr>
+				<td class="tdc1">
+					规格型号/图号/材质：
+				</td>
+				<td>
+					<input type="text" id="materiaModel" name="materiaModel" class="easyui-validatebox" data-options="required:true" maxlength="100"/>
+				</td>
+				<td class="tdc1">
+					材料分类：
+				</td>
+				<td>
+					<select id="materiaClassify" name="materiaClassify">
+						<option value="1">一般材料</option>
+						<option value="2">工具</option>
+						<option value="3">劳保用品</option>
+						<option value="4">办公家具</option>
+						<option value="5">原材料</option>
+						<option value="6">备品</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="tdc1">
+					计量单位：
+				</td>
+				<td>
+					<input type="text" name="materiaUnit" id="materiaUnit" class="easyui-validatebox" data-options="required:true" maxlength="5"/>
+				</td>
+				<td class="tdc1">
+					二级计量单位：
+				</td>
+				<td>
+					<input type="text" name="materiaSecUnit" id="materiaSecUnit" class="easyui-validatebox" data-options="required:true" maxlength="5"/>
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="tdc1">
+					一级数量：
+				</td>
+				<td>
+					<input type="text" name="materiaCount" id="materiaCount" data-options="required:true,min:0,precision:0"  class="easyui-numberbox" />
+				</td>
+				<td class="tdc1">
+					二级数量：
+				</td>
+				<td>
+					<input type="text" name="materiaSecCount" id="materiaSecCount" data-options="required:true,min:0,precision:0"  class="easyui-numberbox" />
+				</td>
+			</tr>
+			<tr>
+				<td class="tdc1">
+					支出班组：
+				</td>
+				<td>
+					<input type="text" name="expenditureTeam" id="expenditureTeam" class="easyui-validatebox" data-options="required:true" maxlength="100"/>
+				</td>
+				<td class="tdc1">
+					支出项目：
+				</td>
+				<td>
+					<input type="text" name="project" id="project" data-options="required:true"   class="easyui-validatebox" maxlength="100"/>
+				</td>
+			</tr>
+			<tr>
+				<td class="tdc1">
+					科目编号：
+				</td>
+				<td>
+					<input type="text" name="unitNumber" id="unitNumber" class="easyui-validatebox" data-options="required:true" maxlength="100" />
+				</td>
+				<td class="tdc1">
+					材料性质：
+				</td>
+				<td>
+					<select id="materiaProperty" name="materiaProperty">
+						<option value="新">新</option>
+						<option value="修旧利废">修旧利废</option>
+						<option value="回收复用">回收复用</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="tdc1">
+					供应单位：
+				</td>
+				<td>
+					<input type="text" name="suppliers"  id="suppliers" class="easyui-validatebox" maxlength="100"/>
+				</td>
+			</tr>
+			<tr>
+				<td class="tdc1">
+					备注：
+				</td>
+				<td colspan="3">
+					<textarea id="remark" name="remark"></textarea>
+				</td>
+			</tr>
+		</table>
+		<div id="tools" class="datagrid-toolbar" style="text-align: center;">
+			<a onclick="save();" class="popup_btn" >确认</a>
+			<a onclick="closeWindow();" class="popup_btn" >关闭</a>
+    	</div>
+   </form>
+</body>
+</html>
+<script>
+	var id = getPram('id');
+	var view = new FormView('#myForm',contextPath+'/system/getMaterialsById/'+id);
+	view.doLoad(loadParent);
+	function loadParent(model) {
+		
+	}
+	function checkFormMe(){
+	   return $('#myForm').form('validate');
+	}
+	//保存
+	function save(){
+		if(checkFormMe()){
+			var arg = $('#myForm').serializeArray();
+			jQuery.post(contextPath+"/system/eidtMaterias/"+id,arg,
+			function (data) {
+				var res =$.parseJSON(data.toString());
+				if(res['flag'] == "success"){
+					$.messager.alert("提示","操作成功!",'info',function(rt){
+						window.parent.updateSearch();
+						closeWindow();
+					});
+				}else if(res['flag'] == "error"){
+					$.messager.alert("提示",res['message'],'warning');
+				}else{
+					$.messager.alert("提示","操作失败!",'error');
+				}
+			});
+		}
+	}
+</script>		 

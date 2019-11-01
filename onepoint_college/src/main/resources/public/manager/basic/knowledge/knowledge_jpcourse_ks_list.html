@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>一点知识系统</title>
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3"/>
+<meta http-equiv="description" content="this is my page"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<script type="text/javascript" src="../../head.js"></script>
+<script type="text/javascript" src="../../script/ajaxfileupload.js"></script>
+</head>
+<body>
+
+<div id="tools" class="datagrid-toolbar">
+		<a onclick="add();"  class="easyui-linkbutton" iconCls="icon-add" plain="true">新增</a>
+		<a onclick="edit();" class="easyui-linkbutton" iconCls="icon-edit" plain="true">编辑</a>
+		<a onclick="del();"  class="easyui-linkbutton" iconCls="icon-cancel" plain="true">删除</a>
+		<a onclick="closeWindow();" class="easyui-linkbutton" iconCls="icon-close" plain="true">关闭</a>
+</div>
+
+ <form id="jvForm" action="" enctype="multipart/form-data" method="post">
+	<div id="search" class="datagrid-toolbar">
+		<table>
+			    <tr>
+					<td align="right">添加时间：</td>
+				    <td align="left">
+					<input name="startDate" id="startDate" class="Wdate" style="width:100px;" 
+						onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',maxDate:'#F{$dp.$D(\'endDate\')}'})" />-
+					<input name="endDate" id="endDate" class="Wdate" style="width:100px;" 
+						onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'#F{$dp.$D(\'startDate\')}'})" />
+				    </td>
+				    
+					<td align="right">精选课时名称：</td>
+					<td align="left">
+						<input name="knowledgesubclasstimename" id="knowledgesubclasstimename" />
+					</td>
+					<td align="right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td><a class="easyui-linkbutton" iconCls="icon-search"
+						plain="true" onclick="query();" style="border: 1px solid #99CCFF;">确定</a> 
+					<a class="easyui-linkbutton" iconCls="icon-recycle"
+						plain="true" onclick="requery();" style="border: 1px solid #99CCFF;">重置</a> 
+					</td>
+			   </tr>
+		</table>
+	</div>
+ </form>
+<table id="list_data"></table>
+<br />
+
+<div id="opWindow" class="easyui-window" title="" data-options="closed:true,draggable:false,modal:true,iconCls:'icon-manager',minimizable:false,maximizable:false" style="width:1000px;height:500px;">
+			<iframe id="windowIframe" src="" scrolling="auto" frameborder="0"
+			style="width: 100%; height: 100%;" ></iframe>
+</div>
+</body>
+</html>
+<script>
+	var id = getPram('id');
+	$('#list_data').datagrid({
+		url:contextPath+"/system/queryAllKnowledgeSubclassTimeSearch?i="+new Date().getTime()+"&id="+id,
+		fitColumns:false,
+		singleSelect:false,
+		method:'POST',
+		rownumbers:true,
+		pagination:true,
+		striped:true,
+		onLoadSuccess:onLoadScroll,
+		columns:[[
+			{field:'id',checkbox:true,sortable:true},
+			{field:'knowledgesubclasstimename',title:'精选课时名称',width:220,sortable:true,align:'center',formatter:contentRenderer},
+			{field:'knowledgesubclasstimenum',title:'精选课时时长',width:100,sortable:true,align:'center',formatter:contentRenderer},
+			{field:'knowledgesubclassurl',title:'精选课程路径',width:300,sortable:true,align:'center',formatter:contentRenderer},
+			{field:'knowledgesubclasstimeaddtime',title:'添加时间',width:180,sortable:true,align:'center',formatter:contentRenderer},
+			{field:'remark',title:'备注信息',width:150,sortable:true,align:'center',formatter:contentRenderer},
+			/* {field:'op',title:'',width:0} */
+		]]
+	});
+	
+	function contentRenderer(value,row,index){
+		if(value!=null){
+			if(value.length>10){
+				return "<span title='"+value+"'>"+value+"</span>";
+			}
+			return value;
+		}
+		return "";
+	}
+	
+	//查询
+	function query(){
+		var id = getPram('id');
+		searchGo(contextPath+"/system/queryAllKnowledgeSubclassTimeSearch?i="+new Date().getTime()+"&id="+id,"#search","#list_data");
+	}
+	//清空
+	function requery(){
+		clearGo(contextPath+"/system/queryAllKnowledgeSubclassTimeSearch?i="+new Date().getTime()+"&id="+id,"#search","#list_data");
+	}
+	
+	//添加信息
+	function add(){
+		var id = getPram('id');
+		openWindow(contextPath+"/manager/basic/knowledge/knowledge_jpcourse_ks_add.html?id="+id);
+	}
+	
+	
+	
+	//修改的方法
+	function edit(){
+		var id = getId('#list_tree','tree');//获取选中的行
+		if(id == ""){
+			return;
+		}
+		/* openWindow(contextPath+"/manager/basic/main/main_subclasstime_add.html?id="+id); */
+	}
+	
+	//行的双击事件
+	function dbClick(rowData){
+		/* openWindow(contextPath+"/manager/system/sysMenu/sysMenu_edit.html?id="+rowData['id']); */
+	}
+	//删除事件
+	function del(){
+		var ids = getIds('#list_data','data');//获取选中的行
+		if(ids == ""){
+			return;
+		}
+		$.messager.confirm('提示','确定要删除吗?',function(r){
+			if(r){
+				$.ajax({
+					type : 'POST',
+					url : contextPath+'/system/deleteKnowledgeSubclassTime',
+					data : {'ids':ids},
+					dataType : "json",
+					success : function(data){
+						$.messager.alert("提示","操作成功!",'info',function(rt){
+							query();
+						});
+					},
+					error:function(response){
+						$.messager.alert("提示","出错了，请联系管理员!",'error',function(rt){
+							$.messager.alert("提示",response.responseText,'error');
+						});
+					}
+				});
+			}
+		});
+	}
+	
+</script>
