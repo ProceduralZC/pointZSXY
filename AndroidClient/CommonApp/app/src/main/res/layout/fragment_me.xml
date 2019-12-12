@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center|top"
+        android:gravity="center|top"
+        android:background="#2D9EEE"
+        android:padding="15dip"
+        >
+
+    <TextView
+        android:id="@+id/set_option_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top|right"
+        android:gravity="center|top|right"
+        android:padding="10dip"
+        android:text="设置"
+        android:textColor="#ffffff"
+        android:textSize="16dp"
+        />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:orientation="horizontal"
+        android:layout_gravity="center|top"
+        android:gravity="center|top"
+        android:background="@color/transparent"
+        >
+
+    <ImageView
+        android:id="@+id/myinfo_logo_image"
+        android:layout_width="65dip"
+        android:layout_height="65dip"
+        android:layout_gravity="center|top"
+        android:gravity="center|top"
+        android:scaleType="fitXY"
+        android:src="@mipmap/infotop_image"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dip"
+        android:layout_gravity="center|left"
+        android:gravity="center|left"
+        android:background="@color/transparent"
+        >
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center|left"
+            android:gravity="center|left"
+            android:background="@color/transparent"
+            >
+
+            <TextView
+                android:id="@+id/student_name_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|left"
+                android:gravity="center|left"
+                android:text="陈建朋"
+                android:textColor="#ffffff"
+                android:textSize="17dp"
+                />
+            <TextView
+                android:id="@+id/register_option_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dip"
+                android:layout_gravity="center|left"
+                android:gravity="center|left"
+                android:text="注册"
+                android:textColor="#ffffff"
+                android:textSize="17dp"
+                />
+            <TextView
+                android:id="@+id/registerlogin_option_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|left"
+                android:gravity="center|left"
+                android:text="/"
+                android:textColor="#ffffff"
+                android:textSize="17dp"
+                />
+            <TextView
+                android:id="@+id/login_option_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dip"
+                android:layout_gravity="center|left"
+                android:gravity="center|left"
+                android:text="登录"
+                android:textColor="#ffffff"
+                android:textSize="17dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip"
+            android:orientation="vertical"
+            android:layout_gravity="center|left"
+            android:gravity="center|left"
+            android:background="@color/transparent"
+            >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center|left"
+                android:gravity="center|left"
+                android:background="@color/transparent"
+                >
+
+                <TextView
+                    android:id="@+id/myinfo_zhiwei_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center|left"
+                    android:gravity="center|left"
+                    android:text="职位：软件开发"
+                    android:textColor="#ffffff"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/myinfo_huiyuan_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center|right"
+                    android:gravity="center|right"
+                    android:text="会员到期: 6个月"
+                    android:textColor="#ffffff"
+                    android:textSize="15dp"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+</LinearLayout>
+
+  <ListView
+    android:id="@+id/myinfo_listview"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:divider="#eeeeee"
+    android:listSelector="@android:color/transparent"
+    android:dividerHeight="1px"
+    android:scrollbars="none"/>
+
+</LinearLayout>

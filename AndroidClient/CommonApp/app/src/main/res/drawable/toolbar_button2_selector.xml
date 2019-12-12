@@ -1,0 +1,4 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@mipmap/home_circlel_c" android:state_selected="true"/>
+    <item android:drawable="@mipmap/home_circlel"/>
+</selector>

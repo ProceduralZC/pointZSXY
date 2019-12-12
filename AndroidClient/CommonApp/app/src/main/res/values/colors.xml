@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="theme">#FFC9AA73</color>
+    <!--白色-->
+    <color name="white">#FFFFFF</color>
+    <color name="colorGray">#DEDEE0</color>
+    <!--黑色-->
+    <color name="black">#000000</color>
+    <!--透明-->
+    <color name="transparent">#00000000</color>
+    <!--烟白色-->
+    <color name="colorWhiteSmoke">#F5F5F5</color>
+    <!--浅蓝色-->
+    <color name="colorDarkorange">#1495EB</color>
+    <!--深灰色-->
+    <color name="colorDarkGrey">#666666</color>
+    <!--淡灰色-->
+    <color name="colorGainsboro">#999999</color>
+    <!--浅浅灰色-->
+    <color name="colorhuivalue">#eeeeee</color>
+    <!--点击颜色-->
+    <color name="bgColor_alert_button_press">#EAEAEA</color>
+    <!--淡淡灰色-->
+    <color name="common_grey">#ABABAB</color>
+    <color name="ed_line">#2D9EEE</color>
+    <color name="colorRed">#FF0000</color><!-- 红色 -->
+    <color name="d">#B4B4B4</color>
+
+    <!--首页头部加载数据-->
+    <color name="loading_color1">#30A3F5</color>
+    <color name="loading_color2">#1D9EFA</color>
+    <color name="key_text_color">#ff643805</color>
+
+</resources>

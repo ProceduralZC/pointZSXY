@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_head_layout" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:background="@color/transparent"
+            android:gravity="left|center|top"
+            android:padding="15dip"
+            android:text="手机号"
+            android:textColor="#333333"
+            android:textSize="16dp" />
+
+        <EditText
+            android:id="@+id/register_username_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:gravity="left|center"
+            android:hint="请输入手机号"
+            android:inputType="phone"
+            android:maxLength="11"
+            android:padding="15dip"
+            android:text=""
+            android:textColor="#333333"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="#eeeeee" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:background="@color/transparent"
+            android:gravity="left|center|top"
+            android:padding="15dip"
+            android:text="密码"
+            android:textColor="#333333"
+            android:textSize="16dp" />
+
+        <EditText
+            android:id="@+id/register_password_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:gravity="left|center"
+            android:hint="请输入6-18位密码"
+            android:inputType="textPassword"
+            android:maxLength="18"
+            android:padding="15dip"
+            android:textColor="#333333"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:visibility="gone"
+        android:background="#eeeeee" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:background="@color/transparent"
+            android:gravity="left|center|top"
+            android:padding="15dip"
+            android:text="动态码"
+            android:textColor="#333333"
+            android:textSize="16dp" />
+
+        <EditText
+            android:id="@+id/edit_dynamic_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:layout_weight="3"
+            android:background="@color/transparent"
+            android:gravity="left|center"
+            android:hint="请输入动态码"
+            android:inputType="number"
+            android:maxLength="6"
+            android:padding="15dip"
+            android:text=""
+            android:textColor="#333333"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tv_verify_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="#F5F5F5"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="获取动态码"
+            android:textColor="#b0000000"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="#eeeeee" />
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dip"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:layout_marginTop="20dip"
+        android:background="@drawable/green_bg_click"
+        android:padding="13dp"
+        android:text="注册"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+</LinearLayout>

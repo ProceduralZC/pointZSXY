@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+ 	android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:id="@+id/normal_liner"
+    >
+
+    <LinearLayout
+        android:id="@+id/normal_luncher_liner"
+        android:layout_width="fill_parent"
+        android:layout_height="200dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_gravity="center|top"
+        android:gravity="center|top"
+        android:orientation="vertical"
+        android:background="@mipmap/mian_meun_image"
+        android:paddingTop="5dip"
+        android:paddingBottom="5dip"
+        />
+
+</LinearLayout>

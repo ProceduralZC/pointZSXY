@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+    <include layout="@layout/common_head_layout"/>
+
+  <ScrollView
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dip"
+    android:scrollbars="none"
+    android:background="#ffffff">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff">
+
+    <com.android.commonapp.views.ProgressWebView
+        android:id="@+id/webview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        android:scrollbars="none"
+        android:visibility="gone"
+        />
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="80dip"
+        android:layout_marginTop="10dip"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:src="@mipmap/ic_launcher"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="知识学院"
+        android:textColor="#333333"
+        android:textSize="16dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dip"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="当前版本1.0.10"
+        android:textColor="#666666"
+        android:textSize="16dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:layout_gravity="center|left"
+        android:gravity="center|left"
+        android:lineSpacingExtra="5dip"
+        android:text="    知识学院在线教育平台隶属于西安优信达软件有限公司。"
+        android:textColor="#333333"
+        android:textSize="16dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:layout_gravity="center|left"
+        android:gravity="center|left"
+        android:lineSpacingExtra="5dip"
+        android:text="    知识学院是在线教育平台。知识学院的理念是通过最新实战课程,帮助需要的人系统学习 Android、Cocos2d-x、iOS、HTML5、Java 等?薪所需的职业开发技能。"
+        android:textColor="#333333"
+        android:textSize="16dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:layout_gravity="center|left"
+        android:gravity="center|left"
+        android:lineSpacingExtra="5dip"
+        android:text="@string/list_oboutme_string"
+        android:textColor="#333333"
+        android:textSize="16dp"
+        />
+
+  </LinearLayout>
+  </ScrollView>
+</LinearLayout>

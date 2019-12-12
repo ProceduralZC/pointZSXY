@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center|top"
+    android:gravity="center|top"
+    android:orientation="vertical"
+    android:background="@color/colorhuivalue" >
+
+    <include
+        layout="@layout/common_head_layout"/>
+
+     <LinearLayout
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center|top"
+         android:gravity="center|top"
+         android:background="@color/transparent"
+         android:orientation="vertical" >
+         
+      <include layout="@layout/init_view" android:visibility="gone"/>
+
+
+         <ListView
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:divider="#eeeeee"
+             android:background="@color/white"
+             android:listSelector="@android:color/transparent"
+             android:dividerHeight="1px"
+             android:scrollbars="none"
+             android:id="@+id/xListView" />
+
+     </LinearLayout>
+
+</LinearLayout>

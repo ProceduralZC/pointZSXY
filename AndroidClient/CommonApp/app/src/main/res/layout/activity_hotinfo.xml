@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_detail_player"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/post_detail_nested_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/post_media_height" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:text="@string/detail_text"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dip"
+                android:background="@color/white"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="目录"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:background="@color/colorhuivalue"
+                />
+
+            <com.android.commonapp.views.ScrollListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="#eeeeee"
+                android:background="@color/white"
+                android:listSelector="@android:color/transparent"
+                android:dividerHeight="1px"
+                android:scrollbars="none"
+                android:id="@+id/xListView" />
+
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <com.example.gsyvideoplayer.video.LandLayoutVideo
+        android:id="@+id/detail_player"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/post_media_height" />
+
+</RelativeLayout>

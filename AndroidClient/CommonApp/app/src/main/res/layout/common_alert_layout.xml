@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:gravity="center_horizontal">
+
+    <RelativeLayout
+        android:layout_width="280dp"
+        android:layout_height="180dp"
+        android:background="@drawable/white_round_corner_bg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_alert_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:text="温馨提示"
+            android:textColor="#333333"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/tv_alert_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="#969696"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_option"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true">
+
+            <TextView
+                android:id="@+id/tv_alert_cancel"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_alert_button_left"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="#00ff00"
+                android:textSize="16sp" />
+
+            <View
+                android:id="@+id/view_dialog"
+                android:layout_width="2px"
+                android:layout_height="match_parent"
+                android:background="#e6e6e6" />
+
+            <TextView
+                android:id="@+id/tv_alert_confirm"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_alert_button_right"
+                android:gravity="center"
+                android:text="确定"
+                android:textColor="#ff0000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_alert_one_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_alert_button_center"
+                android:gravity="center"
+                android:text="确定"
+                android:textColor="#ff0000"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_above="@id/ll_option"
+            android:layout_marginTop="15dp"
+            android:background="#e6e6e6" />
+
+    </RelativeLayout>
+</RelativeLayout>

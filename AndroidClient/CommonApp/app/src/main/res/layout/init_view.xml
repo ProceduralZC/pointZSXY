@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/transparent"
+    android:orientation="vertical"
+    android:id="@+id/initView_layout">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="60dip"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:id="@+id/jindu_liner"
+        >
+
+        <ProgressBar
+            android:id="@+id/progress"
+            style="@style/myProgressBarB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminateDrawable="@drawable/progress_drawable"
+            android:max="1000"/>
+        <TextView
+            android:id="@+id/p_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip"
+            android:layout_gravity="center"
+            android:textColor="#444444"
+            android:padding="5dp"
+            android:textSize="14dp"
+            android:text="@string/all_loading_string" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="60dip"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+
+        <TextView
+            android:id="@+id/restart_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:textColor="@color/key_text_color"
+            android:background="@mipmap/data_no"
+            />
+        <TextView
+            android:id="@+id/restart_textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:textColor="#444444"
+            android:paddingTop="13dp"
+            android:textSize="12sp"
+            android:text="@string/list_datetype_string"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

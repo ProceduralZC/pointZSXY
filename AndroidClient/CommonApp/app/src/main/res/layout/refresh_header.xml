@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:gravity="bottom">
+
+    <RelativeLayout
+        android:id="@+id/refresh_progress"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <LinearLayout
+            android:id="@+id/recyclerview_header_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/pull_to_refresh_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pull_to_refresh_pull_label"
+                android:textColor="#5F5F5F"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp">
+                <TextView
+                    android:id="@+id/pull_to_refresh_updated_at"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="最近更新:07-11 12:00"
+                    android:textColor="#BBBCBD"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/pull_to_refresh_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/recyclerview_header_text"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="-35dp"
+            android:src="@mipmap/ic_pulltorefresh_arrow"
+            android:visibility="visible" />
+
+        <ProgressBar
+            android:id="@+id/pull_to_refresh_progress"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignLeft="@id/recyclerview_header_text"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="-40dp"
+            android:visibility="gone" />
+
+        <View
+            android:id="@+id/header_animation"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_alignLeft="@id/recyclerview_header_text"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="-40dp"
+            android:background="@drawable/loading_animation"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</LinearLayout>

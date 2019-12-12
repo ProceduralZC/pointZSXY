@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="#ffffff"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="#ffffff"
+        >
+
+     <ImageView
+        android:id="@+id/mainpage_info_logo_image"
+        android:layout_width="95dip"
+        android:layout_height="75dip"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:scaleType="fitXY"
+        android:src="@mipmap/normal_bigs_image" />
+
+        <TextView
+            android:id="@+id/mainpage_info_name_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="会议通知"
+            android:textColor="#000000"
+            android:textSize="16dp"
+            />
+    </LinearLayout>
+
+    <!--<TextView
+        android:layout_width="0.5dip"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="#eeeeee"
+        />-->
+
+</LinearLayout>

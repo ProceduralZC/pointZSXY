@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee">
+
+    <include layout="@layout/common_head_layout"/>
+
+    <ListView
+        android:id="@+id/myinfo_listview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:divider="#eeeeee"
+        android:listSelector="@android:color/transparent"
+        android:dividerHeight="1px"
+        android:scrollbars="none"/>
+
+
+    <Button
+        android:id="@+id/user_outlogin"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:layout_marginBottom="30dip"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:padding="13dp"
+        android:text="退出登录"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:background="@drawable/green_bg_click"
+        />
+
+</LinearLayout>

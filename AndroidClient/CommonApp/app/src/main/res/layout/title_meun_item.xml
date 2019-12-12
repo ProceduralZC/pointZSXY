@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="50dip"
+    android:background="#2D9EEE"
+    android:orientation="horizontal"
+    android:layout_gravity="center|top"
+    android:gravity="center|top"
+    android:id="@+id/liner_changdu"
+    >
+	<!-- 返回 -->
+    <LinearLayout
+    android:id="@+id/back_image_left"
+    android:layout_width="0dip"
+    android:layout_height="fill_parent"
+    android:gravity="center|left"
+    android:layout_weight="1"
+    android:orientation="horizontal"
+    android:visibility="invisible"
+    >
+    <ImageView
+        android:id="@+id/item1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="5dp"
+        android:src="@mipmap/top_menu_back_image"
+        android:scaleType="fitXY"
+        android:gravity="center|left"
+        android:textColor="@color/white"
+        android:lines="1"
+        android:textSize="15dp"
+        />
+    <Button
+        android:id="@+id/cancel_topbut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:visibility="invisible"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="5dp"
+        android:gravity="center|left"
+        android:textColor="@color/white"
+        android:lines="1"
+        android:textSize="15dp"
+        />
+
+        <ImageView
+        android:id="@+id/logo_topimage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:visibility="gone"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="5dp"
+        android:gravity="center|left"
+        android:textColor="@color/white"
+        android:lines="1"
+        android:textSize="15dp"
+        />
+    
+    <ImageView
+        android:id="@+id/main_circle_arrer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="5dp"
+        android:gravity="center|left"
+        />
+     
+    </LinearLayout>
+    <!-- 标题 -->
+    <LinearLayout
+    android:id="@+id/liner_goodstype" 
+    android:layout_width="0dip"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:layout_weight="2"
+    android:visibility="invisible"
+    >
+    <TextView
+        android:id="@+id/item2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:textSize="19dp"
+        android:textStyle="normal"
+        android:text=""
+        android:ellipsize="end"
+        android:visibility="invisible"
+        android:maxLines="1" />
+	</LinearLayout>
+	
+    <!-- 右边 -->
+    <LinearLayout
+    android:id="@+id/menu_image_right"
+    android:layout_width="0dip"
+    android:layout_height="fill_parent"
+    android:gravity="center|right"
+    android:layout_weight="1"
+    android:visibility="invisible"
+    >
+
+      <Button
+        android:id="@+id/item3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:layout_marginRight="10dp"
+        android:visibility="gone"
+        android:gravity="center|right"
+        android:textColor="@color/white"
+        android:lines="1"
+        android:textSize="15dp"
+        />
+      
+      <Button
+        android:id="@+id/item4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:layout_marginRight="10dp"
+        android:visibility="gone"
+        android:gravity="center|right"
+        android:textColor="@color/white"
+        android:lines="1"
+        android:textSize="15dp"
+        />
+
+        <ImageView
+        android:id="@+id/item_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:layout_marginRight="10dp"
+        android:visibility="gone"
+        android:gravity="center|right"
+        android:textColor="@color/white"
+        android:lines="1"
+        android:textSize="15dp"
+        />
+
+        <ImageView
+        android:id="@+id/item_imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:layout_marginRight="10dp"
+        android:visibility="gone"
+        android:gravity="center|right"
+        android:textColor="@color/white"
+        android:lines="1"
+        android:textSize="15dp"
+        />
+
+       <ImageView
+        android:id="@+id/item_imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:layout_marginRight="10dp"
+        android:visibility="gone"
+        android:gravity="center|right"
+        android:textColor="@color/white"
+        android:lines="1"
+        android:textSize="15dp"
+        />
+
+        <ImageView
+        android:id="@+id/item_imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:layout_marginRight="10dp"
+        android:visibility="gone"
+        android:gravity="center|right"
+        android:textColor="@color/white"
+        android:lines="1"
+        android:textSize="15dp"
+        />
+    
+	</LinearLayout>
+
+</LinearLayout>

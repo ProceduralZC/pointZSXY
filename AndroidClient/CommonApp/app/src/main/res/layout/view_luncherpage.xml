@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    package="com.android.commonapp.views"
+    android:layout_width="fill_parent"
+ 	android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    >
+
+    <LinearLayout
+        android:id="@+id/havedate_liner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_gravity="center|top"
+        android:gravity="center|top"
+        android:orientation="vertical"
+        android:background="#2D9EEE"
+        android:paddingTop="3dip"
+        android:paddingBottom="3dip"
+        >
+
+        <FrameLayout
+            android:id="@+id/lunbo_image_liner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:focusable="true"
+            android:background="@color/transparent"
+            >
+
+            <com.android.commonapp.views.GuideGallery
+                android:id="@+id/home_gallery"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:soundEffectsEnabled="false"
+                />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/app_linearLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@android:color/transparent"
+            android:orientation="horizontal" >
+
+            <com.android.commonapp.views.FlowIndicator
+                android:id="@+id/myView"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                app:point_normal_color="#45000000"
+                app:point_radius="3dip"
+                app:point_seleted_color="#cccccc"
+                app:point_size="3dip"
+                app:space="5dip"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+    	
+</LinearLayout>

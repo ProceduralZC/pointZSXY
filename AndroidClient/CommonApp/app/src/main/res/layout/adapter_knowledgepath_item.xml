@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="@color/transparent"
+    >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@drawable/allclick_selector"
+        android:padding="10dip"
+        >
+    
+    <ImageView
+      android:id="@+id/examination_logo_image"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+  	  android:gravity="center"
+      android:scaleType="fitXY"
+      android:src="@mipmap/ic_launcher"
+      />
+    
+    <LinearLayout 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:orientation="vertical"
+    android:layout_marginLeft="10dip"
+    android:layout_gravity="center|left"
+    android:gravity="center|left"
+    android:background="@color/transparent"
+    >
+    
+
+    <LinearLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_gravity="center|left"
+    android:gravity="center|left"
+    android:background="@color/transparent"
+    >
+
+       <TextView
+           android:id="@+id/knowledgepath_name_text"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_weight="1"
+           android:layout_gravity="center|left"
+       	   android:gravity="center|left"
+           android:text="考试名称"
+           android:textColor="#000000"
+           android:textSize="17dp"
+           />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip"
+        android:orientation="vertical"
+        android:layout_gravity="center|left"
+        android:gravity="center|left"
+        android:background="@color/transparent"
+        >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center|left"
+            android:gravity="center|left"
+            android:background="@color/transparent"
+            >
+            <TextView
+                android:id="@+id/examination_kstime_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|left"
+                android:gravity="center|left"
+                android:text="6课时"
+                android:textColor="#000000"
+                android:textSize="15dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|left"
+                android:gravity="center|left"
+                android:text=",10分钟"
+                android:textColor="#000000"
+                android:textSize="15dp"
+                />
+
+            <TextView
+                android:id="@+id/examination_cjmember_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="共1234人学习"
+                android:textColor="#000000"
+                android:textSize="15dp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="@color/transparent"
+        />
+
+</LinearLayout>

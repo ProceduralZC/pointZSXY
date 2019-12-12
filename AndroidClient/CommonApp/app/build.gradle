@@ -1,0 +1,67 @@
+apply plugin: 'com.android.application'
+
+android {
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+    compileSdkVersion globalConfiguration.androidCompileSdkVersion
+    buildToolsVersion globalConfiguration.androidBuildToolsVersion
+
+    defaultConfig {
+        applicationId "com.android.commonapp"
+        minSdkVersion globalConfiguration.androidMinSdkVersion
+        targetSdkVersion globalConfiguration.androidTargetSdkVersion
+        versionCode 2
+        versionName "1.2"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    allprojects {
+        repositories {
+            jcenter()
+            maven { url "https://jitpack.io" }
+        }
+    }
+
+    buildToolsVersion '25.0.0'
+}
+
+dependencies {
+    //    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile androidDependencies.multidex
+    compile androidDependencies.okhttp
+    compile androidDependencies.okio
+    compile androidDependencies.loggi
+    compile androidDependencies.retrofit
+    compile androidDependencies.converter
+    compile androidDependencies.scalars
+    compile androidDependencies.glide
+    compile androidDependencies.appcompat_v7
+    compile androidDependencies.support_v4
+    compile androidDependencies.recyclerView
+    compile androidDependencies.layoutshow
+    compile androidDependencies.junitshow
+    //    implementation 'com.android.support:appcompat-v7:26.1.0'
+    //    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    //    testImplementation 'junit:junit:4.12'
+    //    implementation 'com.android.support:multidex:1.0.1'
+    //    implementation 'com.squareup.okhttp3:okhttp:3.9.0'
+    //    implementation 'com.squareup.okio:okio:1.13.0'
+    //    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+    //    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    //    implementation 'com.squareup.retrofit2:converter-gson:2.3.0' // 支持返回值为Gson的支持(以实体类返回)
+    //    implementation 'com.squareup.retrofit2:converter-scalars:2.3.0' // 支持返回值为String
+    //    implementation 'com.github.bumptech.glide:glide:4.3.1'
+    //    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    compile project(':appvideo')
+    compile files('libs/universal-image-loader-1.9.3.jar')
+    compile 'org.wlf:FileDownloader:0.3.2'
+    compile 'com.github.liuguangli:downloaderlibrary:-SNAPSHOT'
+}

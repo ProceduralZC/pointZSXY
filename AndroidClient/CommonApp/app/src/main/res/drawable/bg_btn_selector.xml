@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <!-- 不可用时 -->
+    <item android:drawable="@drawable/bg_btn_disable" android:state_enabled="false" />
+
+    <!-- 默认时 -->
+    <item android:drawable="@drawable/bg_btn_normal" />
+
+</selector>

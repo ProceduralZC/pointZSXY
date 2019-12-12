@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="@drawable/allclick_selector"
+    >
+
+    <LinearLayout
+        android:id="@+id/zuzhijiegou_liner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center|left"
+        android:gravity="center|left"
+        android:background="@color/transparent"
+        android:padding="10dip"
+        >
+
+        <ImageView
+            android:id="@+id/myinfo_logo_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:scaleType="fitXY"
+            android:src="@mipmap/icon_mydownload_image"
+            />
+
+        <TextView
+            android:id="@+id/myinfo_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dip"
+            android:layout_gravity="center|left"
+            android:gravity="center|left"
+            android:text="我的财富"
+            android:textColor="#000000"
+            android:textSize="17dp"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center|left"
+        android:gravity="center|left"
+        android:background="@color/white"
+        android:paddingLeft="5dip"
+        android:paddingRight="5dip"
+        android:paddingTop="5dip"
+        android:paddingBottom="5dip"
+        >
+
+        <ImageView
+            android:id="@+id/mainpage_logo_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:scaleType="fitXY"
+            />
+
+        <TextView
+            android:id="@+id/mainpage_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="6dip"
+            android:layout_gravity="center|left"
+            android:gravity="center|left"
+            android:text="读书圈"
+            android:textColor="#000000"
+            android:textSize="16dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0.5dip"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@color/white"
+        android:padding="5dip"
+        >
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center|left"
+            android:gravity="center|left"
+            android:orientation="horizontal"
+            android:background="@color/transparent"
+            android:scrollbars="none"
+            >
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|left"
+                android:gravity="center|left"
+                android:orientation="horizontal"
+                android:background="@color/transparent"
+                >
+                <com.android.commonapp.views.MyGridView
+                    android:id="@+id/maianpage_info_gridview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:layout_gravity="center|left"
+                    android:horizontalSpacing="1dip"
+                    android:verticalSpacing="1dip"
+                    android:numColumns="7"
+                    android:listSelector="@color/transparent"
+                    android:background="#e1e1e1"
+                    android:stretchMode="columnWidth"
+                    />
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>

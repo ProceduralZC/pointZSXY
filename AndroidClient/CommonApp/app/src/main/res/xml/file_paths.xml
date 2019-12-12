@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--<external-path name="my_image" path=""/>-->
+    <root-path name="root" path=""/>
+    <files-path name="files" path=""/>
+    <cache-path name="cache" path=""/>
+    <external-path name="external" path=""/>
+    <external-files-path name="name" path="path"/>
+    <external-cache-path name="name" path="path"/>
+
+
+    <root-path path="." name="root_path" />
+    <external-path path="Android/data/com.android.commonapp/" name="files_root" />
+    <external-path name="external_files" path="."/>
+
+</paths>
+
+<!--
+  <root-path/> 代表设备的根目录new File("/");
+<files-path/> 代表context.getFilesDir()
+<cache-path/> 代表context.getCacheDir()
+<external-path/> 代表Environment.getExternalStorageDirectory()
+<external-files-path>代表context.getExternalFilesDirs()
+<external-cache-path>代表getExternalCacheDirs()
+path即为代表目录下的子目录
+<external-path
+        name="external"
+        path="pics" />
+
+代表的目录即为：Environment.getExternalStorageDirectory()/pics，其他同理。
+
+当这么声明以后，代码可以使用你所声明的当前文件夹以及其子文件夹。
+
+本例使用的是SDCard所以这么写即可：
+
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <external-path name="external" path="" />
+</paths>
+-->

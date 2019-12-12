@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.android.commonapp">
+
+    <!-- 允许访问网络 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 允许读取网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 允许读取wifi网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 允许写入内部存储数据 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 允许读取内部存储数据 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".CommonApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.android.commonapp.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name=".activity.MainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 登录 -->
+        <activity
+            android:name=".activity.LoginActivity"
+            android:screenOrientation="portrait" />
+
+        <!--
+             exported:要求必须为false，为true则会报安全异常。
+                grantUriPermissions:true，表示授予 URI 临时访问权限。
+        -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.android.commonapp.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <!-- 下载文件服务 -->
+        <service
+            android:name=".service.DownloadService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity
+            android:name=".activity.TestActivity"
+            android:screenOrientation="portrait" />
+        <!-- 知识课件 -->
+        <activity
+            android:name=".activity.kngcourse.KnowledgeCourse_Activity"
+            android:screenOrientation="portrait" />
+        <!-- 知识路径 -->
+        <activity
+            android:name=".activity.kngpath.KnowledgePath_Activity"
+            android:screenOrientation="portrait" />
+        <!-- 精品系列知识 -->
+        <activity
+            android:name=".activity.boutique.Boutique_Activity"
+            android:screenOrientation="portrait" />
+        <!-- 热门知识 -->
+        <activity
+            android:name=".activity.hot.HotInfo_Activity"
+            android:screenOrientation="portrait" />
+        <!-- 课时资源 -->
+        <activity
+            android:name=".activity.Video_Activity"
+            android:screenOrientation="portrait" />
+        <!-- 设置信息 -->
+        <activity
+            android:name=".activity.Setinfo_Activity"
+            android:screenOrientation="portrait" />
+        <!-- 我的信息 -->
+        <activity
+            android:name=".activity.MyInfo_Activity"
+            android:screenOrientation="portrait" />
+        <!-- 消息 -->
+        <activity
+            android:name=".activity.MessageList_Activity"
+            android:screenOrientation="portrait" />
+        <!-- 消息详情 -->
+        <activity
+            android:name=".activity.MessageDetail_Activity"
+            android:screenOrientation="portrait" />
+        <!-- 学习记录 -->
+        <activity
+            android:name=".activity.StudentHistory_Activity"
+            android:screenOrientation="portrait" />
+        <!-- 关于我们 -->
+        <activity
+            android:name=".activity.AboutMy_Activity"
+            android:screenOrientation="portrait" />
+        <!-- 我的下载 -->
+        <activity
+            android:name=".activity.MyDownload_Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.gsyvideoplayer.PlayActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.gsyvideoplayer.ListVideoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.gsyvideoplayer.ListVideo2Activity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.gsyvideoplayer.DetailPlayer"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.gsyvideoplayer.RecyclerView2Activity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.gsyvideoplayer.DetailListPlayer"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.gsyvideoplayer.WebDetailActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.gsyvideoplayer.RecyclerViewActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.gsyvideoplayer.DanmkuVideoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.gsyvideoplayer.FragmentVideoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" />
+        <!-- 帮助与反馈 -->
+        <activity
+            android:name=".activity.FeedbackActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <!-- 我的任务 -->
+        <activity
+            android:name=".activity.MyTaskActivity"
+            android:screenOrientation="portrait" />
+        <!-- Vip购买 -->
+        <activity
+            android:name=".activity.VipPurchaseActivity"
+            android:screenOrientation="portrait" />
+
+        <service android:name=".receiver.DownloadService2">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </service>
+
+        <!-- 注册 -->
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:screenOrientation="portrait"/>
+
+    </application>
+
+</manifest>
