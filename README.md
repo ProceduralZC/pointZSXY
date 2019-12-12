@@ -192,6 +192,13 @@ OK，到这里，服务端就启动成功了，此时我们直接在浏览器地
 ![Image text18](https://github.com/ProceduralZC/pointZSXY/blob/master/image/18.png)
 
 
+2019年12月12日 更新 前端手机app 功能代码
+--
+1. 手机端项目工程
+https://github.com/ProceduralZC/pointZSXY/tree/master/AndroidClient/CommonApp
+
+代码说明后续更新。。。。。。可加公众号中微信进群。
+
 
 关注公众号 程序职场 ，专注于 前端框架（flutter）app移动端，小程序， Spring Boot+微服务，定期文章分享，后续定期更新视频，关注后回复   Java资料  ，领取为你精心准备的干货！
 一个执着的职场程序员
