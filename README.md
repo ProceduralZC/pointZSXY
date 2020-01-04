@@ -197,6 +197,13 @@ OK，到这里，服务端就启动成功了，此时我们直接在浏览器地
 1. 手机端项目工程
 https://github.com/ProceduralZC/pointZSXY/tree/master/AndroidClient/CommonApp
 
+2020年01月04日 更新内容
+--
+1. 一点知识学院导入Ieda项目中正常启动，查看公众号 发布文章
+
+[点击进入查看](https://mp.weixin.qq.com/s/GgXwF2RVo5u6V6QX2Wyk6Q)
+
+
 代码说明后续更新。。。。。。可加公众号中微信进群。
 
 
