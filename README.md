@@ -212,4 +212,4 @@ https://github.com/ProceduralZC/pointZSXY/tree/master/AndroidClient/CommonApp
 
 ![Image text18](https://github.com/ProceduralZC/pointZSXY/blob/master/image/0.png)
 
-[项目部署视频地址](https://github.com/ProceduralZC/pointZSXY.git)
+[项目部署视频地址](https://mp.weixin.qq.com/s/PxG4HRmdwN-zMk0_DpyM8w)
