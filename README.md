@@ -1,6 +1,10 @@
 一点知识学院后台管理系统
 ==
 
+如果 Github 访问速度比较慢或者图片无法刷新出来的话，可以转移到码云查看，或者在线阅读。如果你要提交 issue 或者 pr 的话请到 Github 提交。
+在公众号程序职场后台回复 “学习资料”，可获取一份 精心整理的最新 Java 技术干货（视频，电子书，面试资料pdf）。
+码云地址：https://gitee.com/dot_happydz/a_little_school_of_knowledge
+
 扫码关注加微信，备注 一点知识学院，进群讨论。
 
 ![add image](https://github.com/ProceduralZC/pointZSXY/blob/master/image/0.png)
@@ -11,8 +15,6 @@
 
 https://github.com/ProceduralZC/pointZSXY.git
 
-如果网络太慢可以进入码云下载： https://gitee.com/dot_happydz/a_little_school_of_knowledge
--
         
 本来计划把项目跑起来放到网上供小伙伴们查看预览的，但是服务器有其他几个项目在运行，内存空间已经不足以起起来该项目了，因此小伙伴们只能看一下下面的截图了，本文结尾会有部署教程，部署到本地也可以查看完整效果。（如有需要：联系我，或者后续我录制部署启动视频）
 
