@@ -1,7 +1,7 @@
 一点知识学院后台管理系统
 ==
 
-如果 Github 访问速度比较慢或者图片无法刷新出来的话，可以转移到码云查看，或者在线阅读。如果你要提交 issue 或者 pr 的话请到 Github 提交。
+如果 Github 访问速度比较慢或者图片无法刷新出来的话，可以转移到码云查看。如果你要提交 issue 或者 pr 的话请到 Github 提交。
 在公众号程序职场后台回复 “学习资料”，可获取一份 精心整理的最新 Java 技术干货（视频，电子书，面试资料pdf）。
 码云地址：https://gitee.com/dot_happydz/a_little_school_of_knowledge
 
