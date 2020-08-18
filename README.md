@@ -12,7 +12,7 @@
 https://github.com/ProceduralZC/pointZSXY.git
 
 如果网络太慢可以进入码云下载： https://gitee.com/dot_happydz/a_little_school_of_knowledge
---
+-
         
 本来计划把项目跑起来放到网上供小伙伴们查看预览的，但是服务器有其他几个项目在运行，内存空间已经不足以起起来该项目了，因此小伙伴们只能看一下下面的截图了，本文结尾会有部署教程，部署到本地也可以查看完整效果。（如有需要：联系我，或者后续我录制部署启动视频）
 
@@ -216,3 +216,6 @@ https://github.com/ProceduralZC/pointZSXY/tree/master/AndroidClient/CommonApp
 ![Image text18](https://github.com/ProceduralZC/pointZSXY/blob/master/image/0.png)
 
 [项目部署视频地址](https://mp.weixin.qq.com/s/PxG4HRmdwN-zMk0_DpyM8w)
+
+看完有用记得给个关注（谢谢）
+--
