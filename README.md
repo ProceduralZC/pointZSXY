@@ -2,12 +2,12 @@
 ==
 
 如果 Github 访问速度比较慢或者图片无法刷新出来的话，可以转移到码云查看。如果你要提交 issue 或者 pr 的话请到 Github 提交。
-在公众号程序职场后台回复 “学习资料”，可获取一份 精心整理的最新 Java 技术干货（视频，电子书，面试资料pdf）。
+在公众号 程序员漫画编程 后台回复 “学习资料”，可获取一份 精心整理的最新 Java 技术干货（视频，电子书，面试资料pdf）。
 码云地址：https://gitee.com/dot_happydz/a_little_school_of_knowledge
 
 扫码关注加微信，备注 一点知识学院，进群讨论。
 
-![add image](https://github.com/ProceduralZC/pointZSXY/blob/master/image/0.png)
+![add image](https://img-blog.csdnimg.cn/20201009212156961.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ppYW5wZW5neHVleGlrYWlmYQ==,size_16,color_FFFFFF,t_70)
 
 一点知识学院 是一个在线课程资料的管理系统（是对app手机端的支撑），项目框架采用SpringBoot + JPA + mysql + easyui开发。
 
@@ -35,9 +35,9 @@ https://github.com/ProceduralZC/pointZSXY.git
 3，大学生，还没有毕业就想了解一下Java 和通过一个项目更深入的了解Java的神奇，跑起来该项目，一定很有成就感。<br/> 
 4，其他语言转Java语言的，直接拿来使用就好<br/> 
 
-另外，本项目也在不断的更新中，小伙伴们可以通过关注公众号   程序职场  了解最新更新记录查看最新完成的功能。
+另外，本项目也在不断的更新中，小伙伴们可以通过关注公众号   程序员漫画编程  了解最新更新记录查看最新完成的功能。
 
-![add image2](https://github.com/ProceduralZC/pointZSXY/blob/master/image/0.png)
+![add image2](https://img-blog.csdnimg.cn/20201009212156961.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ppYW5wZW5neHVleGlrYWlmYQ==,size_16,color_FFFFFF,t_70)
 
 
 邀请函
@@ -176,7 +176,7 @@ https://github.com/ProceduralZC/pointZSXY.git
 OK，到这里，服务端就启动成功了，此时我们直接在浏览器地址栏输入<br/> http://localhost:8080/onepoint_college/manager/home/login.html <br/> 
 到此时即可访问该项目，如果要做二次开发，直接在基础上作调整就行，不受任何影响。
 
-（如果启动遇到问题，关注 公众号 “ 程序职场 ”  加群 交流）
+（如果启动遇到问题，关注 公众号 “ 程序员漫画编程 ”  加群 交流）
 =
 
 注意，注意，注意  对应的前端还在更新中，后面会陆续 开源 app，小程序，flutter等移动端源码。
@@ -184,7 +184,7 @@ OK，到这里，服务端就启动成功了，此时我们直接在浏览器地
 文档
 ==
 文档是对项目开发过程中遇到的一些问题的详细记录，主要是为了帮助没有基础的小伙伴快速理解这个项目。
-该项目框架虽然已经基本完成，但是，但是，但是，开发中一些问题整理还欠缺，迫不及待的想要分享给大家，提前开源给大家使用，如果有疑问  添加公众号    程序职场    进群。
+该项目框架虽然已经基本完成，但是，但是，但是，开发中一些问题整理还欠缺，迫不及待的想要分享给大家，提前开源给大家使用，如果有疑问  添加公众号    程序员漫画编程    进群。
 
 其他资料
 ==
@@ -212,10 +212,10 @@ https://github.com/ProceduralZC/pointZSXY/tree/master/AndroidClient/CommonApp
 代码说明后续更新。。。。。。可加公众号中微信进群。
 
 
-关注公众号 程序职场 ，专注于 前端框架（flutter）app移动端，小程序， Spring Boot+微服务，定期文章分享，后续定期更新视频，关注后回复   Java资料  ，领取为你精心准备的干货！
+关注公众号 程序员漫画编程 ，专注于 前端框架（flutter）app移动端，小程序， Spring Boot+微服务，定期文章分享，后续定期更新视频，关注后回复   Java资料  ，领取为你精心准备的干货！
 一个执着的职场程序员
 
-![Image text18](https://github.com/ProceduralZC/pointZSXY/blob/master/image/0.png)
+![Image text18](https://img-blog.csdnimg.cn/20201009212156961.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ppYW5wZW5neHVleGlrYWlmYQ==,size_16,color_FFFFFF,t_70)
 
 [项目部署视频地址](https://mp.weixin.qq.com/s/PxG4HRmdwN-zMk0_DpyM8w)
 
