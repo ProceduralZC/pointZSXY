@@ -52,7 +52,6 @@ https://github.com/ProceduralZC/pointZSXY.git
 --
 （1）首先，不同的用户在登录成功之后，根据不同的角色，配置不同的菜单项，会看到不同的系统菜单，完整菜单如下：
 
-![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/1.png)
 ![0](/image/1.png)
 
 不同用户登录之后，看到的菜单项不同。
@@ -61,96 +60,95 @@ https://github.com/ProceduralZC/pointZSXY.git
 --
 （1）展示后台管理员信息，可以新增，删除，编辑 管理员信息，对不需要的用户可以：禁用，还可以做：启用，重置密码操作等
 
-![Image text2](https://github.com/ProceduralZC/pointZSXY/blob/master/image/2.png)
-![1](/image/1.png)
+![2](/image/2.png)
 
 新增后台管理员用户，可以选择不同权限级别：超级管理员，一级管理员，二级管理员
 
-![Image text3](https://github.com/ProceduralZC/pointZSXY/blob/master/image/3.png)
+![3](/image/3.png)
 
 编辑管理员信息
 
-![Image text4](https://github.com/ProceduralZC/pointZSXY/blob/master/image/4.png)
+![4](/image/4.png)
 
 
 3、数据编辑
 --
 （1）用于维护项目中 固定数据 的展示和编辑，可以通过头部菜单：新增，编辑，删除
 
-![Image text5](https://github.com/ProceduralZC/pointZSXY/blob/master/image/5.png)
+![5](/image/5.png)
 
 4、版本升级
 --
 （1）为app端开发的 android端 版本的升级 ，可以新增，编辑和删除
 
-![Image text6](https://github.com/ProceduralZC/pointZSXY/blob/master/image/6.png)
+![6](/image/6.png)
 
 5、权限管理
 --
 （1）配置用户级别权限，可以给不同级别权限用户配置不同菜单，目前有：超级管理员，一级管理员，二级管理员
 
-![Image text7](https://github.com/ProceduralZC/pointZSXY/blob/master/image/7.png)
+![7](/image/7.png)
 
 6、菜单管理
 --
 （1）产品的项目菜单数据管理，可以根据不同项目的需求 新增，删除，编辑等
 
-![Image text8](https://github.com/ProceduralZC/pointZSXY/blob/master/image/8.png)
+![8](/image/8.png)
 
 
 7、知识类型
 --
 （1）app端的课程资源分类，目前规定四个主分类，知识课件，知识路径，精品系列知识，热门知识。可以新增，删除，编辑
 
-![Image text9](https://github.com/ProceduralZC/pointZSXY/blob/master/image/9.png)
+![9](/image/9.png)
 
 8、知识课件
 --
 （1）课程知识的知识课件分类，可以新增，编辑，删除 分类，同时可以添加子课时
 
-![Image text10](https://github.com/ProceduralZC/pointZSXY/blob/master/image/10.png)
+![10](/image/10.png)
 
 9、知识路径
 --
 （1）课程知识的知识路径分类，可以新增，编辑，删除 分类，同时可以添加子课时
 
-![Image text11](https://github.com/ProceduralZC/pointZSXY/blob/master/image/11.png)
+![11](/image/11.png)
 
 10、精品系列知识
 --
 （1）课程知识的精品系列知识分类，可以新增，编辑，删除 分类，同时可以添加子课时
 
-![Image text12](https://github.com/ProceduralZC/pointZSXY/blob/master/image/12.png)
+![12](/image/12.png)
 
 11、热门知识
 --
 （1）课程知识的热门知识分类，可以新增，编辑，删除 分类
 
-![Image text13](https://github.com/ProceduralZC/pointZSXY/blob/master/image/13.png)
+![13](/image/13.png)
 
 12、精选课程
 --
 （1）精选课程是最专业和最具代表意义的课程资源，可以添加子课时，功能包括，新增，删除，编辑。
 
-![Image text14](https://github.com/ProceduralZC/pointZSXY/blob/master/image/14.png)
+![14](/image/14.png)
 
 13、消息动态
 --
 （1）展示系统发布的一些系统消息，或者资源新增和变更消息等，用户app端展示，功能包括，新增，删除，修改。
 
-![Image text15](https://github.com/ProceduralZC/pointZSXY/blob/master/image/15.png)
+![15](/image/15.png)
 
 14、首页动态
 --
 （1）展示系统发布的一些系统消息，或者推荐视频，最好视频资源等，用户app端展示，功能包括，新增，删除，修改。
 
-![Image text16](https://github.com/ProceduralZC/pointZSXY/blob/master/image/16.png)
+![16](/image/16.png)
 
 15、意见反馈
 --
 （1）用来收集客户在app端使用中遇到的优化意见和反馈帮助意见等等。
 
-![Image text17](https://github.com/ProceduralZC/pointZSXY/blob/master/image/17.png)
+![17](/image/17.png)
 
 技术栈
 ==
@@ -170,7 +168,7 @@ https://github.com/ProceduralZC/pointZSXY.git
 项目部署
 ==
 
-1.克隆(clone) 项目到本地: 克隆Github地址    https://github.com/ProceduralZC/pointZSXY.git <br/> 
+1.克隆(clone) 项目到本地: 克隆Github地址    当前仓库  <br/> 
 2.数据库脚本放在onepoint_college 项目的src / main / webapp / file目录下，在MySQL中执行数据库脚本或者直接导入即可<br/> 
 3.数据库配置在onepoint_college项目的resources目录下的application.properties文件中<br/> 
 4.在eclipse中运行onepoint_college项目<br/> 
@@ -195,13 +193,13 @@ OK，到这里，服务端就启动成功了，此时我们直接在浏览器地
 2019年11月30日 更新内容
 --
 1. 手机端接口功能添加
-![Image text18](https://github.com/ProceduralZC/pointZSXY/blob/master/image/18.png)
+![18](/image/18.png)
 
 
 2019年12月12日 更新 前端手机app 功能代码
 --
 1. 手机端项目工程
-https://github.com/ProceduralZC/pointZSXY/tree/master/AndroidClient/CommonApp
+当前 仓库目录：AndroidClient/CommonApp
 
 2020年01月04日 更新内容
 --
