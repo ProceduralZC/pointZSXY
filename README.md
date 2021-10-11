@@ -53,6 +53,7 @@ https://github.com/ProceduralZC/pointZSXY.git
 （1）首先，不同的用户在登录成功之后，根据不同的角色，配置不同的菜单项，会看到不同的系统菜单，完整菜单如下：
 
 ![Image text](https://github.com/ProceduralZC/pointZSXY/blob/master/image/1.png)
+![0](/image/1.png)
 
 不同用户登录之后，看到的菜单项不同。
 
@@ -60,8 +61,8 @@ https://github.com/ProceduralZC/pointZSXY.git
 --
 （1）展示后台管理员信息，可以新增，删除，编辑 管理员信息，对不需要的用户可以：禁用，还可以做：启用，重置密码操作等
 
-
 ![Image text2](https://github.com/ProceduralZC/pointZSXY/blob/master/image/2.png)
+![1](/image/1.png)
 
 新增后台管理员用户，可以选择不同权限级别：超级管理员，一级管理员，二级管理员
 
