@@ -7,8 +7,6 @@
 
 扫码关注加微信，备注 一点知识学院，进群讨论。
 
-![add image](https://img-blog.csdnimg.cn/20201009212156961.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ppYW5wZW5neHVleGlrYWlmYQ==,size_16,color_FFFFFF,t_70)
-
 一点知识学院 是一个在线课程资料的管理系统（是对app手机端的支撑），项目框架采用SpringBoot + JPA + mysql + easyui开发。
 
 项目地址：Github项目地址
@@ -36,8 +34,6 @@ https://github.com/ProceduralZC/pointZSXY.git
 4，其他语言转Java语言的，直接拿来使用就好<br/> 
 
 另外，本项目也在不断的更新中，小伙伴们可以通过关注公众号：开源黑板报  了解最新更新记录查看最新完成的功能。
-
-![add image2](https://img-blog.csdnimg.cn/20201009212156961.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ppYW5wZW5neHVleGlrYWlmYQ==,size_16,color_FFFFFF,t_70)
 
 
 邀请函
@@ -213,8 +209,6 @@ OK，到这里，服务端就启动成功了，此时我们直接在浏览器地
 
 关注公众号：开源黑板报 ，专注于 前端框架（flutter）app移动端，小程序， Spring Boot+微服务，定期文章分享，后续定期更新视频，关注后回复   Java资料  ，领取为你精心准备的干货！
 一个执着的职场程序员
-
-![Image text18](https://img-blog.csdnimg.cn/20201009212156961.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ppYW5wZW5neHVleGlrYWlmYQ==,size_16,color_FFFFFF,t_70)
 
 [项目部署视频地址](https://mp.weixin.qq.com/s/PxG4HRmdwN-zMk0_DpyM8w)
 
